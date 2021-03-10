@@ -1,13 +1,90 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    font-family: sans-serif;
+    display: flex; 
+    justify-content: center;
+    background-color: #ffe3fe;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto; 
+    overflow: auto;
+    min-height: 150px;
+    border : 1px solid #845ec2; 
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+
+.header {
+    min-width: 400px;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-family: Fascinate;
+    color: #845ec2;
+}
+
+.main-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    margin: 10px;
+    background-color: #ffe3fe;
+    color: #845ec2;
+    border: none; 
+    padding: 5px 20px; 
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: Fascinate;
+}
+
+.form-control label {
+ display: block;
+ font-family: Fascinate;
+}
+
+.form-control input {
+    width: 100%; 
+    height: 30px; 
+    margin: 5px;
+    padding : 10px; 
+    font-size: 15px;
+}
+
+.form-control textarea {
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.diary {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #845ec2;
+    color: #845;
+}
+
+.task h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
