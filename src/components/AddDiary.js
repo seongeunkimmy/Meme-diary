@@ -24,7 +24,7 @@ export default function AddDiary({ onAdd }) {
           
            <form onSubmit={onSubmit}>
             <div className="form-control">
-              <label>Date</label>
+              <label>Select Date</label>
               <input date={date} onChange={(e) => setDate(e.target.value)} type="text" placeholder="Add Date"/>
             </div>
             <div className="form-control">
