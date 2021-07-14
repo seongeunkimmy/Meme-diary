@@ -13,13 +13,11 @@ function App() {
 
 {
   id: 1,
-  date: '01/03/2021',
   text: 'Happy', 
   content: 'I had a nice day'
 },
 {
   id: 2,
-  date: '01/04/2021',
   text: 'Bad',
   content: 'I had a bad day'
 }
@@ -43,7 +41,7 @@ const addDiary = (diary) => {
   return (
     <div className = 'container'>
     <Header showAddForm={showAddForm} onAdd={() => setShowAddForm(!showAddForm)}/>
-    {showAddForm && <AddDiary onAdd={addDiary} />}
+    {showAddForm && <AddDiary addDiary={addDiary} />}
     <Diaries diaries={diaries} onDelete={deleteDiary} />
     </div>
   )
