@@ -6,22 +6,9 @@ import Diaries from './components/Diaries';
 import { useState } from 'react'
 
 
-
 function App() {
   
-  const [diaries, setDiaries] = useState([
-
-{
-  id: 1,
-  text: 'Happy', 
-  content: 'I had a nice day'
-},
-{
-  id: 2,
-  text: 'Bad',
-  content: 'I had a bad day'
-}
-]);
+  const [diaries, setDiaries] = useState([]);
 
 const [showAddForm, setShowAddForm] =useState(false);
 

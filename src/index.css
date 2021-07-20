@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&family=Play&display=swap');
 
 * {
     box-sizing: border-box;
@@ -18,10 +19,10 @@ body {
     margin: 30px auto; 
     overflow: auto;
     min-height: 150px;
-    border : 1px solid #845ec2; 
+    border : 2px solid #845ec2; 
     padding: 20px;
     border-radius: 5px;
-    background-color: white;
+    background-color: #fff;
 }
 
 
@@ -58,7 +59,15 @@ body {
 
 .form-control label {
  display: block;
- font-family: Fascinate;
+ font-family: Otomanopee One;
+ font-size: 0.9rem;
+ color: #52057B;
+}
+
+.form-control span {
+    font-size: 0.7rem;
+    color: gray;
+    font-style: oblique;
 }
 
 .form-control input {
@@ -67,6 +76,8 @@ body {
     margin: 5px;
     padding : 10px; 
     font-size: 15px;
+    border: 2px solid #845ec2;
+    border-radius: 20px;
 }
 
 .form-control textarea {
@@ -74,6 +85,8 @@ body {
     margin: 5px;
     padding: 10px;
     font-size: 15px;
+    border: 2px solid #845ec2;
+    border-radius: 20px;
 }
 
 .diary {

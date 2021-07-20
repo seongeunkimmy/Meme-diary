@@ -1,0 +1,26 @@
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkbox label {
+    font-size: 0.8rem;
+    color: black;
+}
+
+.checkbox input {
+    width: 15px;
+}
+
+.check-opt {
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+    align-items: center;
+   
+}
+
+.form-item {
+    margin: 15px 0;
+}
