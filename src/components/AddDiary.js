@@ -1,13 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
 import DatePicker from "react-datepicker";
+import HeartRating from "./HeartRating.js"
 
 import "./AddDiary.css"
 import "react-datepicker/dist/react-datepicker.css";
 
 
-export default function AddDiary({ addDiary }) {
-    
+export default function AddDiary({addDiary, handleHover}) {
+
+  const [selectedHeart, setSelectedHeart] = useState(0);
+  const [hover, setHover] = useState(0);
   const [startDate, setStartDate] = useState(null);
   const [text, setText] = useState('');
   const [content, setContent] = useState('');
@@ -22,17 +25,16 @@ export default function AddDiary({ addDiary }) {
     setCheckedNo(!checkedNo);
   }
   
-  
-  
- 
   const onSubmit = (e) => {
     e.preventDefault(); 
 
-    addDiary({text, content, startDate})
+    addDiary({text, content, startDate, selectedHeart})
     
     setStartDate(null)
     setText('')
     setContent('')
+    setSelectedHeart(0)
+    setHover(0)
 
     e.target.reset();
   }
@@ -54,7 +56,9 @@ export default function AddDiary({ addDiary }) {
             </div>
             <div className="form-item">
               <label>Giving your hearts</label>
-              <span>How many hearts would you give for yourself?</span>
+            
+              <HeartRating totalHearts={5} selectedHeart={selectedHeart} setSelectedHeart={setSelectedHeart} hover={hover} setHover={setHover}/>
+              
             </div>
             <div className="form-item">
               <label>Meditation / Exercise</label>

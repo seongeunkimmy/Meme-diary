@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.header {
+    width: 400px;
+    border-right: 2px solid black;
+    margin: 10px;
+}
+
+.form {
+    width: 380px;
+}

@@ -1,13 +1,15 @@
-import React from 'react'
+import React from 'react';
+import './Header.css';
 
-const Header = ({onAdd}) => {
+const Header = ({addToggle}) => {
+
     return (
-        <div className='header'>
-           <div className='title'>
-           <h1>forMe DIARY</h1> 
+        <div>
+           <div className="title">
+            <h1>forMe</h1> 
            </div>
            <div className="main-btn">
-           <button onClick={onAdd} className="btn">Write Your Diary!</button>
+            <button onClick={addToggle} className="btn">Write Your Story!</button>
            </div>
         </div>
     )
