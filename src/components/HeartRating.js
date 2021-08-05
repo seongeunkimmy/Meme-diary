@@ -1,26 +1,37 @@
-import React, { useState }from 'react'
-import {IoMdHeartEmpty} from 'react-icons/io'
+import React from 'react'
+import {HiOutlineHeart} from 'react-icons/hi'
 import "./HeartRating.css"
 
-export default function HeartRating({selectedHeart, setSelectedHeart, totalHearts, hover, setHover}) {
-   
-  
 
-    return (
-        <div>
+export default function HeartRating({
+    totalHearts,
+    // hoverHeart, 
+    // setHoverHeart,
+    selectedHeart,
+    setSelectedHeart
+    }) {
+        
+
+        return (
+            <div>
             {[...Array(totalHearts)].map((n, i) => {
                 i += 1
-            return <IoMdHeartEmpty
-              key={i}
-              className={i <= (hover || selectedHeart) ? "selectedHeart" : "heart"}
-              onMouseEnter={()=> setHover(i)}
-              onMouseLeave={()=> setHover(selectedHeart)}
-              onClick={() => setSelectedHeart(i)}
-              
-            />
-            })}
+                return <HiOutlineHeart
+                  key={i}
+                  className={i <= selectedHeart ? "selectedHeart" : "heart"}
+                //   onMouseEnter={() => setHoverHeart(i)}
+                //   onMouseLeave={() => setHoverHeart(selectedHeart)}
+                  onClick={() => setSelectedHeart(i)}
+                
+                  />
+                  
+            
+                })}
+            </div>
+            
+        )
+    
+    }
 
+    
 
-        </div>
-    )
-}

@@ -7,34 +7,32 @@ import "./AddDiary.css"
 import "react-datepicker/dist/react-datepicker.css";
 
 
-export default function AddDiary({addDiary, handleHover}) {
-
+export default function AddDiary(props) {
+  const {addDiary} = props;
+  // const [hoverHeart, setHoverHeart] = useState(0);
   const [selectedHeart, setSelectedHeart] = useState(0);
-  const [hover, setHover] = useState(0);
   const [startDate, setStartDate] = useState(null);
   const [text, setText] = useState('');
   const [content, setContent] = useState('');
-  const [checkedYes, setCheckedYes] = useState(false); 
-  const [checkedNo, setCheckedNo] = useState(false);
-
-  const handleChangeYes = () => {
-    setCheckedYes(!checkedYes);
+  const [checked, setChecked] = useState('')
+  
+  const handleChange = (e) => {
+   setChecked(e.target.value)
+   console.log(e.target.value)
   }
   
-  const handleChangeNo = () => {
-    setCheckedNo(!checkedNo);
-  }
+  
   
   const onSubmit = (e) => {
     e.preventDefault(); 
 
-    addDiary({text, content, startDate, selectedHeart})
+    addDiary({text, content, startDate, selectedHeart, checked})
     
     setStartDate(null)
     setText('')
     setContent('')
     setSelectedHeart(0)
-    setHover(0)
+    setChecked('')
 
     e.target.reset();
   }
@@ -52,30 +50,56 @@ export default function AddDiary({addDiary, handleHover}) {
             </div>
             <div className="form-item">
               <label>One thing I am grateful for</label>
-              <input text={text} onChange={(e) => setText(e.target.value)} type="text" placeholder="Today.."/>
+              <input 
+              text={text} 
+              onChange={(e) => setText(e.target.value)} 
+              type="text" 
+              placeholder="Today.."/>
             </div>
             <div className="form-item">
               <label>Giving your hearts</label>
             
-              <HeartRating totalHearts={5} selectedHeart={selectedHeart} setSelectedHeart={setSelectedHeart} hover={hover} setHover={setHover}/>
+              <HeartRating
+              totalHearts={5} 
+              // hoverHeart={hoverHeart}
+              // setHoverHeart={setHoverHeart}
+              selectedHeart={selectedHeart}
+              setSelectedHeart={setSelectedHeart}
               
+               />
+             
             </div>
+
             <div className="form-item">
               <label>Meditation / Exercise</label>
               <div className="checkbox">
               <div className="check-opt">
               <label>Yes</label>
-                <input type="checkbox" value={checkedYes} onChange={handleChangeYes}></input>
+                <input 
+                type="radio" 
+                checked={checked === "Yes"}
+                value="Yes" 
+                onChange={handleChange}/>
               </div>
               <div className="check-opt">
               <label>No</label>
-              <input type="checkbox" value={checkedNo} onChange={handleChangeNo}></input> 
+              <input 
+              type="radio" 
+              checked={checked === "No"}
+              value="No"
+              onChange={handleChange} />
               </div>
               </div>
             </div>
              <div className="form-item">
               <label>Today I feel</label>
-              <textarea content={content} onChange={(e) => setContent(e.target.value)} name="Content" id="" placeholder="Tell me about your day! What happened?" cols="15" rows="5"></textarea>
+              <textarea 
+              content={content} 
+              onChange={(e) => setContent(e.target.value)} 
+              name="Content" 
+              placeholder="Tell me about your day! What happened?" 
+              cols="15" 
+              rows="5" />
              </div>
               
             </div>

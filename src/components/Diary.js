@@ -9,9 +9,20 @@ export default function Diary( { diary, onDelete, selectedHeart, setSelectedHear
 
     return (
         <div className="diary">
-            <h2>{diary.text} <FaTimes onClick={() => onDelete(diary.id)} style={{color: 'white', backgroundColor: '#845ec2'}} /></h2>
+            <h2>{diary.text} 
+            <FaTimes 
+            onClick={() => onDelete(diary.id)} 
+            style={{color: 'white', backgroundColor: '#845ec2'}} />
+            </h2>
              {diary.startDate ? `${diary.startDate.getDate()}/${diary.startDate.getMonth()}/${diary.startDate.getFullYear()}` : null}
-             <div><HeartRating totalHearts={5} selectedHeart={diary.selectedHeart} setSelectedHeart={diary.setSelectedHeart}/></div>
+             <div>
+             <HeartRating 
+             totalHearts={5} 
+             selectedHeart={diary.selectedHeart}
+             setSelectedHeart={diary.setSelectedHeart}
+             /></div>
+             <h4>Treat your body?</h4>
+             <p>{diary.checked}</p>
             <p>{diary.content}</p>
         </div>
     )
