@@ -39,14 +39,13 @@ export default function AddDiary(props) {
 
     return (
         <div>
-          
            <form onSubmit={onSubmit}>
-            
             <div className="form-control">
             <div className="form-item">
               <label>Select Date</label>
               <DatePicker selected={startDate} 
-                          onChange={(date) => setStartDate(date)} />
+                          onChange={(date) => setStartDate(date)}
+                          placeholderText="Choose a date" />
             </div>
             <div className="form-item">
               <label>One thing I am grateful for</label>
@@ -58,6 +57,7 @@ export default function AddDiary(props) {
             </div>
             <div className="form-item">
               <label>Giving your hearts</label>
+              <span>How many hearts would you give to yourself?</span>
             
               <HeartRating
               totalHearts={5} 
@@ -65,13 +65,13 @@ export default function AddDiary(props) {
               // setHoverHeart={setHoverHeart}
               selectedHeart={selectedHeart}
               setSelectedHeart={setSelectedHeart}
-              
                />
-             
+               
             </div>
 
             <div className="form-item">
-              <label>Meditation / Exercise</label>
+              <label>Treat your body well?</label>
+              <span>Eat Healthy/ Meditation / Exercise </span>
               <div className="checkbox">
               <div className="check-opt">
               <label>Yes</label>
@@ -101,10 +101,12 @@ export default function AddDiary(props) {
               cols="15" 
               rows="5" />
              </div>
-              
             </div>
-            <input type='submit' value= "Upload it!" className="btn" />
             
+            <div className="form-upload">
+            <button type='submit' value= "Upload it!"  className="btn">Upload it!</button> 
+            </div>
+
             </form>
            
         </div>

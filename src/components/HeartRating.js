@@ -17,6 +17,7 @@ export default function HeartRating({
             {[...Array(totalHearts)].map((n, i) => {
                 i += 1
                 return <HiOutlineHeart
+                  size={18}
                   key={i}
                   className={i <= selectedHeart ? "selectedHeart" : "heart"}
                 //   onMouseEnter={() => setHoverHeart(i)}

@@ -16,6 +16,8 @@
     font-family: Playfair Display;
     background: none;
     border: none;
-    border-bottom: 2px solid black;
+    padding: 5px;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid black;
     margin: 20px;
 }

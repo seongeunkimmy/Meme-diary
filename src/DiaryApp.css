@@ -5,10 +5,14 @@
 
 .header {
     width: 400px;
-    border-right: 2px solid black;
+    border-bottom: 4px solid transparent;
+    border-right: 4px solid black;
+    border-top: 4px solid transparent;
     margin: 10px;
 }
 
 .form {
-    width: 380px;
+    width: 330px;
+    margin-left: 25px;
 }
+
