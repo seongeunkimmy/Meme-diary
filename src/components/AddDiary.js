@@ -42,13 +42,13 @@ export default function AddDiary(props) {
            <form onSubmit={onSubmit}>
             <div className="form-control">
             <div className="form-item">
-              <label>Select Date</label>
+              <label>SELECT DATE</label>
               <DatePicker selected={startDate} 
                           onChange={(date) => setStartDate(date)}
                           placeholderText="Choose a date" />
             </div>
             <div className="form-item">
-              <label>One thing I am grateful for</label>
+              <label>ONE THING I AM GRATEFUL FOR</label>
               <input 
               text={text} 
               onChange={(e) => setText(e.target.value)} 
@@ -56,10 +56,10 @@ export default function AddDiary(props) {
               placeholder="Today.."/>
             </div>
             <div className="form-item">
-              <label>Giving your hearts</label>
+              <label>GIVE YOUR HEARTS</label>
               <span>How many hearts would you give to yourself?</span>
-            
-              <HeartRating
+             <div className="hearts">
+             <HeartRating 
               totalHearts={5} 
               // hoverHeart={hoverHeart}
               // setHoverHeart={setHoverHeart}
@@ -67,14 +67,16 @@ export default function AddDiary(props) {
               setSelectedHeart={setSelectedHeart}
                />
                
+             </div>
+             
             </div>
 
             <div className="form-item">
-              <label>Treat your body well?</label>
+              <label>TREAT YOUR BODY WELL?</label>
               <span>Eat Healthy/ Meditation / Exercise </span>
               <div className="checkbox">
               <div className="check-opt">
-              <label>Yes</label>
+              <label>YES</label>
                 <input 
                 type="radio" 
                 checked={checked === "Yes"}
@@ -82,7 +84,7 @@ export default function AddDiary(props) {
                 onChange={handleChange}/>
               </div>
               <div className="check-opt">
-              <label>No</label>
+              <label>NO</label>
               <input 
               type="radio" 
               checked={checked === "No"}
@@ -92,7 +94,7 @@ export default function AddDiary(props) {
               </div>
             </div>
              <div className="form-item">
-              <label>Today I feel</label>
+              <label>TODAY I FEEL</label>
               <textarea 
               content={content} 
               onChange={(e) => setContent(e.target.value)} 

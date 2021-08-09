@@ -1,8 +1,8 @@
 .form-control { 
     display: flex; 
     flex-direction: column;
-    border-top: 3px solid transparent;
-    border-left: 3px solid black;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid black;
 }
 
 .form-item {
@@ -14,32 +14,38 @@
 
 .form-item label {
     padding-bottom: 5px;
+    font-weight: 500;
 }
 
 .form-item input {
     border: 0;
     border-bottom: 1px solid gray;
+    padding: 5px;
 }
 
 .form-item textarea {
     border: 0;
     border-bottom: 1px solid gray;
+    padding: 5px;
 }
+
 .form-item span {
     font-size: 0.8rem;
     color: gray;
+    
 }
 
 .checkbox {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .checkbox label {
     font-size: 0.8rem;
     color: black;
-    
+    padding: 5px;
 }
 
 .checkbox input {
@@ -52,6 +58,10 @@
     margin-right: 20px;
     align-items: center;
    
+}
+
+.hearts {
+    padding: 5px 0;
 }
 
 .form-upload {

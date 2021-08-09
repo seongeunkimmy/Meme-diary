@@ -33,7 +33,7 @@ export default function Diary( { diary, onDelete, selectedHeart, setSelectedHear
             {diary.startDate ? `${diary.startDate.getDate()}/${diary.startDate.getMonth()}/${diary.startDate.getFullYear()}` : null}
             </div>
             <div className="grid-flex">
-             <h4>Treat your body?</h4>
+             <h4>Treat your body well?</h4>
              <p>{diary.checked}</p>
              </div>
             </div>
