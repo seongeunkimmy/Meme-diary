@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+.title {
+    font-size: 2rem;
+    font-family: Playfair Display; 
+    font-weight: 400
+}
+
+.main-btn {
+    margin-top: 40px;
+   
+}
+
+.btn {
+    font-size: 1.2rem;
+    font-family: Playfair Display;
+    background: none;
+    border: none;
+    padding: 5px;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid black;
+    margin: 20px;
+}
