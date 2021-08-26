@@ -4,9 +4,11 @@ import './Diary.css';
 
 
 export default function Diary( { diary, onDelete, selectedHeart, setSelectedHeart } ) {
-    
+   
+
 
     return (
+      
         <div className="diary">
             <div className="diary-item">
             <div className="diary-grid">
@@ -21,7 +23,7 @@ export default function Diary( { diary, onDelete, selectedHeart, setSelectedHear
              setSelectedHeart={diary.setSelectedHeart}
              />
           
-             
+      
              </div>
             </div>
             
