@@ -1,12 +1,13 @@
 import React from 'react'; 
-import DiaryApp from './DiaryApp.js';
+import Routes from './routes';
 
 import './App.css';
 
 function App() {
 return (
-   <DiaryApp />
+ <Routes />
   )
+  
 }
 
 export default App;
