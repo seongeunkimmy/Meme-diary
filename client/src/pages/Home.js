@@ -9,8 +9,11 @@ export default function Home() {
         <Navbar />
         <div className="home-container">
            <h1 className="title">forMe.</h1> 
-           <div className="main-btn">
-            <Link className="btn" to="/diaries/new">Write Your Story!</Link>
+           <div className="main-btn wrapper">
+         
+           <Link className="btn" to="/diaries/new">Write Your Story!</Link>
+          
+          
          </div>
          </div>
         </div>

@@ -5,8 +5,6 @@ import "./HeartRating.css"
 
 export default function HeartRating({
     totalHearts,
-    // hoverHeart, 
-    // setHoverHeart,
     selectedHeart,
     setSelectedHeart
     }) {
@@ -26,7 +24,6 @@ export default function HeartRating({
                 
                   />
                   
-            
                 })}
             </div>
             

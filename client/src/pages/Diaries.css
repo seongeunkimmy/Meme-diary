@@ -48,6 +48,16 @@
     border-right: 2px solid transparent;
     border-bottom: 2px solid black;
     width: 50px;
+    transition: all 0.30s; 
+    letter-spacing: none;
 }
 
+p {
+    padding-left: 8px;
+}
+
+.sm-btn:hover{ 
+    transform : scaleX(1.2);
+    letter-spacing: 0.5px;
+}
 

@@ -119,7 +119,7 @@ export default function AddDiary() {
             </div>
             
             <div className="form-upload">
-            <button type='submit' value= "Upload it!"  className="btn">Upload it!</button> 
+            <button type='submit' value= "Upload it!"  className="lg-btn">Upload it!</button> 
             </div>
 
             </form>
