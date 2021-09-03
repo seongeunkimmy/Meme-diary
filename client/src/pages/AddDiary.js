@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 // import { useHistory } from 'react-router-dom'
 import axios from 'axios';
-// import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar'
 import DatePicker from "react-datepicker";
 import HeartRating from "./HeartRating.js"
 
@@ -50,8 +50,9 @@ export default function AddDiary() {
 
     return (
         <div>
-        
-           <form onSubmit={onSubmit}>
+        <Navbar />
+           <form className="form" onSubmit={onSubmit}>
+           <h1 className="form-title">How are you today? </h1>
             <div className="form-control">
             <div className="form-item">
               <label>SELECT DATE</label>
@@ -114,6 +115,7 @@ export default function AddDiary() {
               cols="15" 
               rows="5" />
              </div>
+           
             </div>
             
             <div className="form-upload">

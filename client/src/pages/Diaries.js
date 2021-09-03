@@ -1,5 +1,6 @@
 import React, { useEffect, useState }from 'react'
 import HeartRating from "./HeartRating.js"
+import Navbar from "../components/Navbar"
 import './Diaries.css'
 
   export default function Diaries() {
@@ -18,12 +19,18 @@ import './Diaries.css'
           }
       }).then(jsonRes => setDiaries(jsonRes))
   })
-//   const deleteDiary = (_id) => {
-//     setDiaries(diaries.filter((diary) => diary._id !== _id))
-//    }
+
       return (
+          
           <div>
-            {diaries.map(diary => <div className="diary">
+          <Navbar />
+          <div className="diary-container">
+        <h1 className="diary-title">forMe.</h1>
+        <div>
+
+            {diaries.map(diary => 
+            <>
+        <div className="diary">
           <div className="diary-item">
           <div className="diary-grid">
           <div>
@@ -62,10 +69,13 @@ import './Diaries.css'
          
           </div>
          
+      
+          </> 
             
   )}
+  </div>
             
-          
+  </div>  
          </div>
     
         

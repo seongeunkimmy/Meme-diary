@@ -1,12 +1,26 @@
+.diary-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.diary-title {
+    font-size: 5rem;
+    font-family: Playfair Display; 
+    font-weight: bold;
+    margin-left: 100px;
+}
+
 .diary {
     display: flex;
     flex-direction: column;
-    width: 800px;
+    width: 90%;
     border-bottom: 3px solid black;
     border-right: 3px solid transparent;
     padding: 10px;
-    margin: 50px;
 }
+
 .diary-item {
     display: flex; 
     flex-direction: column;
@@ -35,4 +49,5 @@
     border-bottom: 2px solid black;
     width: 50px;
 }
+
 
