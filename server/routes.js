@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router(); 
-const Diary = require("../../models/diary");
+const Diary = require("./models/diary");
 
 router.route('/diaries/new').post((req, res) => {
     const title = req.body.title; 

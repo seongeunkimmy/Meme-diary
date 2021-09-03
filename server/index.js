@@ -3,8 +3,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
 
-const items = require('./routes/api/diaries');
-
 //middleware
 app.use(cors());
 app.use(express.urlencoded({extended: false}));
@@ -19,7 +17,7 @@ mongoose.connect(db)
 .catch(err => console.log(err))
 
 //routes
-app.use('/', require('./routes/api/diaries'))
+app.use('/', require('./routes'))
 
 app.get('/', function (req, res) {
     res.send("it's running")

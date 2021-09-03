@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from './pages/Home';
 import AddDiary from './pages/AddDiary';
-import DiaryApp from './pages/DiaryApp';
+import Diaries from './pages/Diaries';
 
 export default function routes() {
     return (
@@ -11,7 +11,7 @@ export default function routes() {
            <Switch>
                <Route path="/" exact component={Home} />
                <Route path="/diaries/new" component={AddDiary} />
-               <Route path="/diaries" component={DiaryApp} />
+               <Route path="/diaries" component={Diaries} />
            </Switch>
        </BrowserRouter>
     )

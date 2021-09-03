@@ -1,7 +1,6 @@
 import React, { useEffect, useState }from 'react'
-import Diary from './Diary'
 import HeartRating from "./HeartRating.js"
-
+import './Diaries.css'
 
   export default function Diaries() {
   const [diaries, setDiaries] = useState([{
@@ -24,8 +23,7 @@ import HeartRating from "./HeartRating.js"
 //    }
       return (
           <div>
-            {diaries.map(diary => 
-          <div className="diary">
+            {diaries.map(diary => <div className="diary">
           <div className="diary-item">
           <div className="diary-grid">
           <div>
@@ -39,7 +37,6 @@ import HeartRating from "./HeartRating.js"
            setSelectedHeart={diary.setSelectedHeart}
            />
         
-    
            </div>
           </div>
           
@@ -63,11 +60,12 @@ import HeartRating from "./HeartRating.js"
           </button>
            </div>
          
-          
           </div>
          
-    
+            
   )}
+            
+          
          </div>
     
         
