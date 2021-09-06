@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios';
 import Navbar from '../components/Navbar'
 import DatePicker from "react-datepicker";
@@ -21,12 +21,11 @@ export default function AddDiary() {
    setBodyChecked(e.target.value)
   }
   
-  // const history = useHistory();
+  const history = useHistory();
 
   const onSubmit = (e) => {
     e.preventDefault(); 
 
-  
     const newDiary = {
       title, 
       content, 
@@ -34,11 +33,11 @@ export default function AddDiary() {
       selectedHeart, 
       bodyChecked,
     }  
+
     console.log(newDiary);
     axios.post("http://localhost:3001/diaries/new", newDiary);
-      //  history.push('/diaries');
+     history.push('/diaries');
    
-    
     setDate(null)
     setTitle('')
     setContent('')
@@ -69,7 +68,7 @@ export default function AddDiary() {
               placeholder="Today.."/>
             </div>
             <div className="form-item">
-              <label>GIVE YOUR HEARTS</label>
+              <label>GIVE YOURSELF HEARTS</label>
               <span>How many hearts would you give to yourself?</span>
             
             <div className="hearts">
@@ -78,7 +77,6 @@ export default function AddDiary() {
               selectedHeart={selectedHeart}
               setSelectedHeart={setSelectedHeart}
                />
-               
              </div>
              
             </div>
@@ -111,7 +109,7 @@ export default function AddDiary() {
               content={content} 
               onChange={(e) => setContent(e.target.value)} 
               name="Content" 
-              placeholder="Tell me about your day! What happened?" 
+              placeholder="Tell me about your day! What happened? How do you feel?" 
               cols="15" 
               rows="5" />
              </div>

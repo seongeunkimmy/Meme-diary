@@ -10,6 +10,7 @@ app.use(express.json());
 
 //db config
 const db = require('./config/keys').mongoURI;
+// const diary = require('./models/diary');
 
 //connect to mongoDB
 mongoose.connect(db)
@@ -23,6 +24,16 @@ app.get('/', function (req, res) {
     res.send("it's running")
 })
 
+app.delete('/delete/:id', (req, res) => {
+    const id = req.params.id; 
+    Diary.findByIdAndDelete({_id: id}, (req, res, err) => {
+        if(!err) {
+           console.log('deleted');
+        } else {
+            console.log(err);
+        }
+     })
+})
 
 const PORT = 3001; 
 app.listen(PORT, () => {

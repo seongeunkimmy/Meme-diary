@@ -1,4 +1,5 @@
 import React, { useEffect, useState }from 'react'
+import axios from 'axios';
 import HeartRating from "./HeartRating.js"
 import Navbar from "../components/Navbar"
 import './Diaries.css'
@@ -11,6 +12,12 @@ import './Diaries.css'
       date: null,
       bodyChecked: ''
   }])
+
+  function deleteDiary(id) {
+     axios.delete('/delete/' + id)
+     alert('item deleted')
+     console.log(`deleted item is ${id}`)
+  } 
 
   useEffect(() => {
       fetch('/diaries').then(res => {
@@ -62,7 +69,7 @@ import './Diaries.css'
            <p>{diary.content}</p>
            </div>
            <div className="diary-item">
-           <button className="sm-btn" >
+           <button onClick={() => deleteDiary(diary._id)} className="sm-btn" >
            Delete
           </button>
            </div>
