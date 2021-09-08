@@ -25,6 +25,9 @@ import './Diaries.css'
               return res.json()
           }
       }).then(jsonRes => setDiaries(jsonRes))
+        .catch((err) => {
+            console.log(err);
+        })
   })
 
       return (

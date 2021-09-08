@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router(); 
-const Diary = require("./models/diary");
 
+//diary Model
+const Diary = require("../../models/Diary");
+
+
+//POST new diary
 router.route('/diaries/new').post((req, res) => {
     const title = req.body.title; 
     const content = req.body.content; 
@@ -19,11 +23,11 @@ router.route('/diaries/new').post((req, res) => {
     newDiary.save();
 });
 
+//GET diaries
 router.route('/diaries').get((req, res) => {
     Diary.find()
          .then(foundDiaries => res.json(foundDiaries))
 })
-
 
 
 

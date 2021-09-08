@@ -35,7 +35,7 @@ export default function AddDiary() {
     }  
 
     console.log(newDiary);
-    axios.post("http://localhost:3001/diaries/new", newDiary);
+     axios.post("http://localhost:3001/diaries/new", newDiary);
      history.push('/diaries');
    
     setDate(null)

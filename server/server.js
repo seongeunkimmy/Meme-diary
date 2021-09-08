@@ -10,7 +10,7 @@ app.use(express.json());
 
 //db config
 const db = require('./config/keys').mongoURI;
-// const diary = require('./models/diary');
+
 
 //connect to mongoDB
 mongoose.connect(db)
@@ -18,7 +18,7 @@ mongoose.connect(db)
 .catch(err => console.log(err))
 
 //routes
-app.use('/', require('./routes'))
+app.use('/', require('./route/api/diary'))
 
 app.get('/', function (req, res) {
     res.send("it's running")
