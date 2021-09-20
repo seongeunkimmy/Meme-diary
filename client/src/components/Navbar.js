@@ -8,7 +8,7 @@ export default function Navbar({diaries}) {
     return (
         <div className="nav-container">
             <section className="main-section">
-                <Link className="nav-main" to="/">
+                <Link className="nav-main" to="/home">
                     forMe.
                 </Link>
                 </section>

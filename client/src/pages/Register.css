@@ -1,50 +1,46 @@
-
-
-.login-container {
-  display: grid; 
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+.register-container {
+    background-color: black;
+    width: 100%; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.part {
-    height: 100vh;
-    display: flex; 
-    align-items: center;
+.regi-title {
+    color: #fffeee;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    display: flex;
     justify-content: center;
 }
 
-.login {
-    background-color: black;
-    color: #fffeee;
+.register-form {
+    width: 400px;
+    height: 500px;
+    border: 2px solid #fffeee;
 }
 
-.sign-in-form {
-    width: 200px;
-    height: 250px;
-}
-
-.sign-in-form h1 {
-    font-size: 1.5rem;
-    margin: 20px 0;
-}
-
-.login-form {
+.regi-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-.login-form input {
-    width: 200px;
+.regi-form input {
+    width: 350px;
     height: 30px;
-    margin: 2px 0;
+    color: #fffeee;
+    margin: 15px 0;
     border: 0;
     border-bottom: 1px solid gray;
-    padding: 5px;
     background-color: black;
 }
-.login-form button {
-    margin: 20px 0;
+
+.regi-form button {
+    margin: 30px 0;
     width: 200px;
     height: 30px;
     border: 3px solid #fffeee;
@@ -53,20 +49,20 @@
     align-self: center;
 }
 
-.sign-up {
+.log-in {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 350px;
+}
+.log-in span {
+    font-size: 0.9rem;
+    margin-right: 20px;
+    color: #fffeee;
 }
 
-.sign-up span {
-    font-size: 0.8rem;
-    margin-right: 10px;
-}
-
-.sign-up button {
+.log-in button {
     width: 50px;
     font-size: 0.7rem;
     border: 0;
@@ -78,7 +74,7 @@
     letter-spacing: none;
 }
 
-.sign-up button:hover{ 
+.log-in button:hover{ 
     transform : scaleX(1.1);
     letter-spacing: 0.1px;
 }

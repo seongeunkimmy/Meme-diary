@@ -13,7 +13,7 @@ export default function Login() {
             </div>
             
            <div className="part login">
-             <form>
+             <form className="sign-in-form">
                  <h1>Log-in</h1>
                  <div className="login-form"> 
                  <input
