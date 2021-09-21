@@ -18,7 +18,8 @@ mongoose.connect(db)
 .catch(err => console.log(err))
 
 //routes
-app.use('/', require('./route/api/diary'))
+app.use('/api', require('./route/api/diary'))
+app.use('/api', require('./route/api/user'))
 
 app.get('/', function (req, res) {
     res.send("it's running")
