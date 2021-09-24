@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
+const config = require('config');
 
 //middleware
 app.use(cors());
@@ -9,7 +10,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 //db config
-const db = require('./config/keys').mongoURI;
+const db = config.get('mongoURI');
 
 
 //connect to mongoDB
@@ -18,8 +19,9 @@ mongoose.connect(db)
 .catch(err => console.log(err))
 
 //routes
-app.use('/api', require('./route/api/diary'))
-app.use('/api', require('./route/api/user'))
+app.use('/api/diary', require('./route/api/diary'))
+app.use('/api/user', require('./route/api/user'))
+app.use('/api/auth', require('./route/api/auth'))
 
 app.get('/', function (req, res) {
     res.send("it's running")

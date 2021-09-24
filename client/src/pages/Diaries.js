@@ -20,7 +20,7 @@ import './Diaries.css'
   } 
 
   useEffect(() => {
-      fetch('/api/diaries').then(res => {
+      fetch('/api/diary/diaries').then(res => {
           if(res.ok) {
               return res.json()
           }

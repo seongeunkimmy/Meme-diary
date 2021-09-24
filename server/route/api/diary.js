@@ -1,12 +1,13 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router(); 
+const auth = require('../../middleware/auth');
 
 //diary Model
 const Diary = require("../../models/Diary");
 
 
 //POST new diary
-router.route('/diaries/new').post((req, res) => {
+router.post('/diaries/new', auth, (req, res) => {
     const title = req.body.title; 
     const content = req.body.content; 
     const date = req.body.date; 
@@ -24,7 +25,7 @@ router.route('/diaries/new').post((req, res) => {
 });
 
 //GET diaries
-router.route('/diaries').get((req, res) => {
+router.get('/diaries', (req, res) => {
     Diary.find()
          .then(foundDiaries => res.json(foundDiaries))
 })
