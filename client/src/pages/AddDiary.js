@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
+// import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import axios from 'axios';
 import Navbar from '../components/Navbar'
 import DatePicker from "react-datepicker";
 import HeartRating from "./HeartRating.js"
 
+import { addDiary } from "../actions/diaryAction"
+
 import "./AddDiary.css"
 import "react-datepicker/dist/react-datepicker.css";
+
 
 
 export default function AddDiary() {
@@ -17,26 +21,32 @@ export default function AddDiary() {
   const [content, setContent] = useState('');
   const [bodyChecked, setBodyChecked] = useState('')
   
+
   const handleChange = (e) => {
    setBodyChecked(e.target.value)
   }
-  
+
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const onSubmit = (e) => {
     e.preventDefault(); 
-
+   
     const newDiary = {
+      
       title, 
       content, 
       date, 
       selectedHeart, 
       bodyChecked,
     }  
+      console.log(newDiary);
+      dispatch(addDiary(newDiary));
+    
+    
+    history.push('/diaries');
+    
 
-    console.log(newDiary);
-     axios.post("http://localhost:3001/diaries/new", newDiary);
-     history.push('/diaries');
    
     setDate(null)
     setTitle('')
@@ -125,3 +135,11 @@ export default function AddDiary() {
         </div>
     )
 }
+
+
+
+// const mapStateToProps = (state) => ({
+//   diary: state.diary
+// });
+
+// export default connect(mapStateToProps, { addDiary })(AddDiary);
