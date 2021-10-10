@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
 //GET diaries
 router.get('/', (req, res) => {
     Diary.find()
-         .then(foundDiaries => res.json(foundDiaries))
+         .then(diaries => res.json(diaries))
 })
 
 //DELETE diary

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 // import axios from 'axios';
 import HeartRating from "./HeartRating.js"
 import Navbar from "../components/Navbar"
@@ -129,9 +130,9 @@ class Diaries extends Component {
     //     console.log(`deleted item is ${id}`)
     //  } 
 
-    onDeleteClick = (_id) => {
-        this.props.deleteDiary(_id)
-    }
+    // onDeleteClick = (id) => {
+    //     this.props.deleteDiary(id)
+    // }
 
    render() {
        const { diaries } = this.props.diary;
@@ -143,19 +144,19 @@ class Diaries extends Component {
       <h1 className="diary-title">forMe.</h1>
       <div>
 
-          {diaries.map(({_id, title, content, date, selectedHeart, bodyChecked})=> 
+          {diaries.map((diary)=> 
           <>
       <div className="diary">
         <div className="diary-item">
         <div className="diary-grid">
         <div>
-        <h2>{title}</h2>
+        <h2>{diary.title}</h2>
         </div>
         <div className="grid-flex">
        
         <HeartRating 
          totalHearts={5} 
-         selectedHeart={selectedHeart}
+         selectedHeart={diary.selectedHeart}
          setSelectedHeart={this.props.selectedHeart}
          />
       
@@ -164,22 +165,22 @@ class Diaries extends Component {
         
         <div className="diary-grid">
         <div>
-        {date ? `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}` : null}
+        {diary.date ? moment(diary.date).format('l') : null}
         </div>
         <div className="grid-flex">
          <h4>Treat your body well?</h4>
-         <p>{bodyChecked}</p>
+         <p>{diary.bodyChecked}</p>
          </div>
         </div>
         </div>
         
          <div className="diary-item">
-         <p>{content}</p>
+         <p>{diary.content}</p>
          </div>
          <div className="diary-item">
-         <button onClick={this.onDeleteClick.bind(this, _id)} className="sm-btn" >
+         {/* <button onClick={this.onDeleteClick.bind(this, id)} className="sm-btn" >
          Delete
-        </button>
+        </button> */}
          </div>
        
         </div>
