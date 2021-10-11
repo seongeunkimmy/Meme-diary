@@ -12,12 +12,12 @@ export default function(state = initialState, action) {
            console.log(action);
            return {
                ...state,
-               diaries: [action.payload]
+               diaries: action.payload
            }
        case DELETE_DIARY:
            return {
                ...state,
-               diaries: state.diaries.filter(diary => diary.id !== action.payload)
+               diaries: state.diaries.filter(diary => diary._id !== action.payload)
            }
        case ADD_DIARY:
            return {

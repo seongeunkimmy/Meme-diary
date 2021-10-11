@@ -14,7 +14,8 @@ const db = config.get('mongoURI');
 
 
 //connect to mongoDB
-mongoose.connect(db)
+mongoose
+.connect(db)
 .then(() => console.log('mongoDB is connected'))
 .catch(err => console.log(err))
 
@@ -29,7 +30,7 @@ app.get('/', function (req, res) {
 
 
 
-const PORT = 3001; 
+const PORT = 5000; 
 app.listen(PORT, () => {
     console.log(`Server is runnng on port ${PORT}`)
 })

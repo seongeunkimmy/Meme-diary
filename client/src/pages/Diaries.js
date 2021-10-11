@@ -17,7 +17,8 @@ import { PropTypes } from 'prop-types';
 // import { getDiaries, deleteDiary } from '../actions/diaryAction';
 // import './Diaries.css'
 
-//   export default function Diaries() {
+
+//  const Diaries = () => {
 // //   const [diaries, setDiaries] = useState([{
 // //       title: '',
 // //       content: '',
@@ -58,11 +59,11 @@ import { PropTypes } from 'prop-types';
 //         <h1 className="diary-title">forMe.</h1>
 //         <div>
 
-//             {diaries.map(diary => 
-//             <>
-//         <div className="diary">
+//             {diaries.map((diary) => (
+            
+//           <div className="diary">
 //           <div className="diary-item">
-//           <div className="diary-grid">
+//           <div key={diary._id} className="diary-grid">
 //           <div>
 //           <h2>{diary.title}</h2>
 //           </div>
@@ -100,7 +101,7 @@ import { PropTypes } from 'prop-types';
 //           </div>
          
       
-//           </> 
+//             ) 
             
 //   )}
 //   </div>
@@ -113,9 +114,9 @@ import { PropTypes } from 'prop-types';
 //   }
   
 
+// export default Diaries;
 
-
-//-----------------------------------------------------------------------------------------------------------------
+// //-----------------------------------------------------------------------------------------------------------------
 
 
 
@@ -130,9 +131,9 @@ class Diaries extends Component {
     //     console.log(`deleted item is ${id}`)
     //  } 
 
-    // onDeleteClick = (id) => {
-    //     this.props.deleteDiary(id)
-    // }
+    onDeleteClick = (id) => {
+        this.props.deleteDiary(id)
+    }
 
    render() {
        const { diaries } = this.props.diary;
@@ -144,20 +145,20 @@ class Diaries extends Component {
       <h1 className="diary-title">forMe.</h1>
       <div>
 
-          {diaries.map((diary)=> 
+          {diaries.map(({_id, title, content, date, selectedHeart, bodyChecked})=> 
           <>
-      <div className="diary">
+      <div key={_id} className="diary">
         <div className="diary-item">
         <div className="diary-grid">
         <div>
-        <h2>{diary.title}</h2>
+        <h2>{title}</h2>
         </div>
         <div className="grid-flex">
        
         <HeartRating 
          totalHearts={5} 
-         selectedHeart={diary.selectedHeart}
-         setSelectedHeart={this.props.selectedHeart}
+         selectedHeart={selectedHeart}
+        //  setSelectedHeart={this.props.selectedHeart}
          />
       
          </div>
@@ -165,22 +166,22 @@ class Diaries extends Component {
         
         <div className="diary-grid">
         <div>
-        {diary.date ? moment(diary.date).format('l') : null}
+        {date ? moment(date).format('l') : null}
         </div>
         <div className="grid-flex">
          <h4>Treat your body well?</h4>
-         <p>{diary.bodyChecked}</p>
+         <p>{bodyChecked}</p>
          </div>
         </div>
         </div>
         
          <div className="diary-item">
-         <p>{diary.content}</p>
+         <p>{content}</p>
          </div>
          <div className="diary-item">
-         {/* <button onClick={this.onDeleteClick.bind(this, id)} className="sm-btn" >
+         <button onClick={this.onDeleteClick.bind(this, _id)} className="sm-btn" >
          Delete
-        </button> */}
+        </button>
          </div>
        
         </div>

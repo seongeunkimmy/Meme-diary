@@ -14,13 +14,24 @@ export const getDiaries = () => dispatch => {
             )
   }
 
+// export const getDiaries = () => async (dispatch) => {
+//     try {
+//         const {data} = await axios.get("http://localhost:3001/api/diary");
 
+//         dispatch({ type: GET_DIARIES, payload : data })
+//     } catch(error) {
+//         console.log(error.message)
+//     }
+// };
 
-export const deleteDiary = id => {
-    return {
-        type: DELETE_DIARY,
-        payload: id
-        }
+export const deleteDiary = id => dispatch => {
+    axios.delete(`/api/diary/${id}`)
+         .then(res => 
+            dispatch({
+                type: DELETE_DIARY,
+                payload: id
+            }))
+  
 }
 
 export const addDiary = diary => dispatch => {
