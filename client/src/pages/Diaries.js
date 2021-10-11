@@ -147,7 +147,7 @@ class Diaries extends Component {
 
           {diaries.map(({_id, title, content, date, selectedHeart, bodyChecked})=> 
           <>
-      <div key={_id} className="diary">
+        <div key={_id} className="diary">
         <div className="diary-item">
         <div className="diary-grid">
         <div>

@@ -34,13 +34,10 @@ router.get('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     const id = req.params.id; 
-    Diary.findByIdAndDelete({_id: id}, (req, res, err) => {
-        if(!err) {
-           console.log('deleted');
-        } else {
-            console.log(err);
-        }
-     })
+    Diary.findById(id)
+       .then(diary => diary.remove().then(() => res.json({success: true})))
+       .catch(err => res.status(404).json({success: false}))
 })
+  
 
 module.exports = router; 
