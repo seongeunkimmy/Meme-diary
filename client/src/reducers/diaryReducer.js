@@ -1,10 +1,12 @@
 
-import { GET_DIARIES, DELETE_DIARY, ADD_DIARY, DIARY_LOADING } from '../actions/types';
+import { GET_DIARIES, DELETE_DIARY, ADD_DIARY, DIARY_LOADING, FETCH_DIARY_PENDING, FETCH_DIARY_SUCCESS, FETCH_DIARY_ERROR  } from '../actions/types';
 
 const initialState = {
         diaries: [],
-        loading: false
-    
+        loading: false,
+        pending: false,
+        error: null
+
 }
 
 export default function(state = initialState, action) {
@@ -31,8 +33,10 @@ export default function(state = initialState, action) {
                ...state,
                loading: true
            }
+
     
            default:
                return state;
    }
 }
+

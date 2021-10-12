@@ -6,8 +6,11 @@ import Navbar from "../components/Navbar"
 import './Diaries.css'
 
 import { connect } from 'react-redux';
-import { getDiaries, deleteDiary } from '../actions/diaryAction';
+
+// import { getDiaries, deleteDiary } from '../actions/diaryAction';
 import { PropTypes } from 'prop-types';
+
+import {getDiary} from '../actions/fetchDiary'
 
 // import React, { useEffect, useState }from 'react'
 // import { useSelector, useDispatch } from 'react-redux'
@@ -121,34 +124,35 @@ import { PropTypes } from 'prop-types';
 
 
 class Diaries extends Component {
-    static propTypes = {
-        getDiaries: PropTypes.func.isRequired, 
-        diary: PropTypes.object.isRequired
-    }
-   
-    componentDidAmount() {
-        this.props.getDiaries();
-    }
+  
+
+componentDidMount() {
+    this.props.dispatch((getDiary()));
+}
+    
+    // componentDidAmount() {
+    //     this.props.getDiaries();
+    // }
     // deleteDiary = (id) => {
     //     axios.delete('/delete/' + id)
     //     alert('item deleted')
     //     console.log(`deleted item is ${id}`)
     //  } 
 
-    onDeleteClick = (id) => {
-        this.props.deleteDiary(id)
-    }
+    // onDeleteClick = (id) => {
+    //     this.props.deleteDiary(id)
+    // }
 
    render() {
-       const { diaries } = this.props.diary;
+       const { diaries } = this.props;
     
        return(
         <div>
-        <Navbar />
+        
         <div className="diary-container">
       <h1 className="diary-title">forMe.</h1>
       <div>
-          {diaries.map(({_id, title, content, date, selectedHeart, bodyChecked}) => (
+          { diaries && diaries.length ? diaries.map(({_id, title, content, date, selectedHeart, bodyChecked}) => (
             <div key={_id} className="diary">
         <div className="diary-item">
         <div className="diary-grid">
@@ -181,14 +185,14 @@ class Diaries extends Component {
          <p>{content}</p>
          </div>
          <div className="diary-item">
-         <button onClick={this.onDeleteClick.bind(this, _id)} className="sm-btn" >
+         {/* <button onClick={} className="sm-btn" >
          Delete
-        </button>
+        </button> */}
          </div>
        
         </div>
        
-          ))}
+          )) : null } 
           
         
     
@@ -205,11 +209,16 @@ class Diaries extends Component {
    };
 
  
-
+//    Diaries.propTypes = {
+//     getDiary: PropTypes.func.isRequired, 
+   
+// }
    const mapStateToProps = state => ({
-       diary: state.diary
-
+    //    diary: state.diary,
+       diaries: state.diaries.diaries,
+      
    })
 
 
-export default connect(mapStateToProps, { getDiaries, deleteDiary })(Diaries);
+
+export default connect(mapStateToProps)(Diaries);

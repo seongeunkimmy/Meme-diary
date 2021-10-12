@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import './Navbar.css';
 
@@ -8,7 +8,7 @@ export default function Navbar({diaries}) {
     return (
         <div className="nav-container">
             <section className="main-section">
-                <Link className="nav-main" to="/home">
+                {/* <Link className="nav-main" to="/home">
                     forMe.
                 </Link>
                 </section>
@@ -22,7 +22,7 @@ export default function Navbar({diaries}) {
                         <Link className="nav-item" to="/diaries">
                              YOUR STORY
                         </Link>
-                    </div>
+                    </div> */}
                 </section>
                      
                 </div>

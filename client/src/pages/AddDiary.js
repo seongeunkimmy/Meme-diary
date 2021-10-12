@@ -44,7 +44,7 @@ export default function AddDiary() {
       dispatch(addDiary(newDiary));
     
     
-    history.push('/diaries');
+
     
 
    
@@ -59,7 +59,7 @@ export default function AddDiary() {
 
     return (
         <div>
-        <Navbar />
+      
            <form className="form" onSubmit={onSubmit}>
            <h1 className="form-title">How are you today? </h1>
             <div className="form-control">
