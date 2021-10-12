@@ -1,8 +1,8 @@
 import React from 'react'; 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
 import Home from './pages/Home';
 import AddDiary from './pages/AddDiary';
 import Diaries from './pages/Diaries';
