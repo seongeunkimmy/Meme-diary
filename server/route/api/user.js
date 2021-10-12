@@ -6,16 +6,17 @@ const jwt = require('jsonwebtoken');
 
 const User = require("../../models/User");
 
-
+// Register new user 
 
 router.post('/', (req, res) => {
     const {firstName, lastName, email, password} = req.body;
 
     //validation
     if(!firstName || !lastName || !email || !password) {
-        return res.status(400).json({msg:'Please enther the field'})
+        return res.status(400).json({msg:'Please enter all fields'})
     }
-
+    
+    //check if the user exists
     User.findOne({email})
     .then(user => {
         if(user) return res.status(400).json({msg: 'This user is alreay existed'});
@@ -27,14 +28,15 @@ router.post('/', (req, res) => {
             password
         })
 
-        //salt & hash
+        //salt & hash 
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {
                 if(err) throw err;
                 newUser.password = hash; 
                 newUser.save()
                 .then(user => {
-
+                 
+                    //verify the user with id
                     jwt.sign(
                         { id: user.id },
                         config.get('jwtSecret'),

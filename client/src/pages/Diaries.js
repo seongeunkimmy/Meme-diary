@@ -121,6 +121,10 @@ import { PropTypes } from 'prop-types';
 
 
 class Diaries extends Component {
+    static propTypes = {
+        getDiaries: PropTypes.func.isRequired, 
+        diary: PropTypes.object.isRequired
+    }
    
     componentDidAmount() {
         this.props.getDiaries();
@@ -144,10 +148,8 @@ class Diaries extends Component {
         <div className="diary-container">
       <h1 className="diary-title">forMe.</h1>
       <div>
-
-          {diaries.map(({_id, title, content, date, selectedHeart, bodyChecked})=> 
-          <>
-        <div key={_id} className="diary">
+          {diaries.map(({_id, title, content, date, selectedHeart, bodyChecked}) => (
+            <div key={_id} className="diary">
         <div className="diary-item">
         <div className="diary-grid">
         <div>
@@ -186,10 +188,13 @@ class Diaries extends Component {
        
         </div>
        
-    
-        </> 
+          ))}
           
-)}
+        
+    
+       
+          
+          
 </div>
           
 </div>  
@@ -199,12 +204,9 @@ class Diaries extends Component {
    }
    };
 
-   Diaries.propTypes = {
-       getDiaries: PropTypes.func.isRequired, 
-       diary: PropTypes.object.isRequired
-   }
+ 
 
-   const mapStateToProps = (state) => ({
+   const mapStateToProps = state => ({
        diary: state.diary
 
    })

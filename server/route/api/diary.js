@@ -7,7 +7,7 @@ const Diary = require("../../models/Diary");
 
 
 //POST new diary
-router.post('/', (req, res) => {
+router.post('/', auth, (req, res) => {
     const title = req.body.title; 
     const content = req.body.content; 
     const date = req.body.date; 
@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
 
 //DELETE diary
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', auth, (req, res) => {
     const id = req.params.id; 
     Diary.findById(id)
        .then(diary => diary.remove().then(() => res.json({success: true})))

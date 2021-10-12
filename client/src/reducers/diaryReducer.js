@@ -1,8 +1,9 @@
 
-import { GET_DIARIES, DELETE_DIARY, ADD_DIARY } from '../actions/types';
+import { GET_DIARIES, DELETE_DIARY, ADD_DIARY, DIARY_LOADING } from '../actions/types';
 
 const initialState = {
-        diaries: []
+        diaries: [],
+        loading: false
     
 }
 
@@ -12,7 +13,8 @@ export default function(state = initialState, action) {
            console.log(action);
            return {
                ...state,
-               diaries: action.payload
+               diaries: action.payload, 
+               loading: false
            }
        case DELETE_DIARY:
            return {
@@ -23,6 +25,11 @@ export default function(state = initialState, action) {
            return {
                ...state, 
                diaries: [action.payload, ...state.diaries]
+           }
+       case DIARY_LOADING:
+           return {
+               ...state,
+               loading: true
            }
     
            default:

@@ -1,7 +1,12 @@
 import axios from 'axios';
-import { GET_DIARIES, DELETE_DIARY, ADD_DIARY } from '../actions/types';
+import { GET_DIARIES, DELETE_DIARY, ADD_DIARY, DIARY_LOADING } from '../actions/types';
 
 
+export const diaryLoading = () => {
+    return {
+        type: DIARY_LOADING
+    }
+}
 
 export const getDiaries = () => dispatch => {
        axios
@@ -37,4 +42,5 @@ export const addDiary = diary => dispatch => {
         )
     
 }
+
 

@@ -7,7 +7,7 @@ const auth = require('../../middleware/auth');
 
 const User = require("../../models/User");
 
-
+// Sign-in auth user 
 
 router.post('/', function (req, res) {
     const {email, password} = req.body;
@@ -50,6 +50,8 @@ router.post('/', function (req, res) {
     
 });
 
+
+//get user data with token
 router.get('/user', auth, function(req, res) {
     User.findById(req.user.id)
     .select('-password')
