@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React, { useEffect, useDispatch } from 'react';
 import moment from 'moment';
 // import axios from 'axios';
 import HeartRating from "./HeartRating.js"
@@ -10,7 +11,7 @@ import { connect } from 'react-redux';
 // import { getDiaries, deleteDiary } from '../actions/diaryAction';
 import { PropTypes } from 'prop-types';
 
-import {getDiary, deleteDiary} from '../actions/fetchDiary'
+import {getDiary, deleteDiary} from '../actions/diariesAction'
 
 // import React, { useEffect, useState }from 'react'
 // import { useSelector, useDispatch } from 'react-redux'
@@ -123,30 +124,122 @@ import {getDiary, deleteDiary} from '../actions/fetchDiary'
 
 
 
-class Diaries extends Component {
+// class Diaries extends Component {
   
 
-componentDidMount() {
-    this.props.dispatch((getDiary()));
-}
+// componentDidMount() {
+//     this.props.dispatch((getDiary()));
+// }
     
-    // componentDidAmount() {
-    //     this.props.getDiaries();
-    // }
-    // deleteDiary = (id) => {
-    //     axios.delete('/delete/' + id)
-    //     alert('item deleted')
-    //     console.log(`deleted item is ${id}`)
-    //  } 
+//     // componentDidAmount() {
+//     //     this.props.getDiaries();
+//     // }
+//     // deleteDiary = (id) => {
+//     //     axios.delete('/delete/' + id)
+//     //     alert('item deleted')
+//     //     console.log(`deleted item is ${id}`)
+//     //  } 
 
-    // onDeleteClick = (id) => {
-    //     this.props.deleteDiary(id)
-    // }
+//     // onDeleteClick = (id) => {
+//     //     this.props.deleteDiary(id)
+//     // }
 
-   render() {
-       const { diaries } = this.props;
+//    render() {
+//        const { diaries } = this.props;
     
-       return(
+//        return(
+//         <div>
+//         <Navbar />
+//         <div className="diary-container">
+//       <h1 className="diary-title">forMe.</h1>
+//       <div>
+//           { diaries && diaries.length ? diaries.map(({_id, title, content, date, selectedHeart, bodyChecked}) => (
+//             <div key={_id} className="diary">
+//         <div className="diary-item">
+//         <div className="diary-grid">
+//         <div>
+//         <h2>{title}</h2>
+//         </div>
+//         <div className="grid-flex">
+       
+//         <HeartRating 
+//          totalHearts={5} 
+//          selectedHeart={selectedHeart}
+//         //  setSelectedHeart={this.props.selectedHeart}
+//          />
+      
+//          </div>
+//         </div>
+        
+//         <div className="diary-grid">
+//         <div>
+//         {date ? moment(date).format('l') : null}
+//         </div>
+//         <div className="grid-flex">
+//          <h4>Treat your body well?</h4>
+//          <p>{bodyChecked}</p>
+//          </div>
+//         </div>
+//         </div>
+        
+//          <div className="diary-item">
+//          <p>{content}</p>
+//          </div>
+//          <div className="diary-item">
+//          {/* <button onClick={this.onDeleteClick.bind(this, _id)} className="sm-btn" >
+//          Delete
+//         </button> */}
+      
+//          </div>
+       
+//         </div>
+       
+//           )) : null } 
+          
+        
+    
+       
+          
+          
+// </div>
+          
+// </div>  
+//        </div>
+  
+//        )
+//    }
+//    };
+
+ 
+// //    Diaries.propTypes = {
+// //     deleteDiary: PropTypes.func.isRequired, 
+   
+// // }
+//    const mapStateToProps = state => ({
+//     //    diary: state.diary,
+//        diaries: state.diaries.diaries,
+      
+//    })
+
+
+
+// export default connect(mapStateToProps)(Diaries);
+
+
+
+//------------------------------------------------------------------------------------------------------------
+
+function Diaries({diaries, getDiary, deleteDiary}) {
+
+    useEffect(() => {
+        getDiary();
+    }, []);
+
+    const handleDelete = (id) => {
+        deleteDiary(id);
+    }
+
+    return(
         <div>
         <Navbar />
         <div className="diary-container">
@@ -185,12 +278,10 @@ componentDidMount() {
          <p>{content}</p>
          </div>
          <div className="diary-item">
-         {/* <button onClick={this.onDeleteClick.bind(this, _id)} className="sm-btn" >
-         Delete
-        </button> */}
-        <button onClick={(_id) => this.props.dispatch(deleteDiary(_id))} className="sm-btn" >
+         <button onClick={() => handleDelete(_id)} className="sm-btn" >
          Delete
         </button>
+      
          </div>
        
         </div>
@@ -208,7 +299,6 @@ componentDidMount() {
        </div>
   
        )
-   }
    };
 
  
@@ -224,4 +314,6 @@ componentDidMount() {
 
 
 
-export default connect(mapStateToProps)(Diaries);
+export default connect(mapStateToProps, {getDiary, deleteDiary})(Diaries);
+
+

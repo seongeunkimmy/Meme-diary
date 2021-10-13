@@ -1,4 +1,4 @@
-import {FETCH_DIARY_SUCCESS, DELETE_DIARY, ADD_DIARY, DIARY_LOADING, DELETE_DIARY_SUCCESS } from '../actions/types'
+import {FETCH_DIARY_SUCCESS, DELETE_DIARY, ADD_DIARY, DIARY_LOADING, DELETE_DIARY_SUCCESS } from './types'
 import api from '../api/api.js'
 
 const getDiarySuccess = (diaries) => {
@@ -8,12 +8,12 @@ const getDiarySuccess = (diaries) => {
   }
 }
 
-const deleteDiarySuccess = (response) => {
-    return {
-        type: DELETE_DIARY_SUCCESS,
-        response: response
-    }
-}
+// const deleteDiarySuccess = (response) => {
+//     return {
+//         type: DELETE_DIARY_SUCCESS,
+//         response: response
+//     }
+// }
 
 export const getDiary = () => {
     return (dispatch) => {
@@ -34,16 +34,28 @@ export const diaryLoading = () => {
 }
 
 
+// export const deleteDiary = (id) => {
+//     return (dispatch) => {
+//         api.delete(`/api/diary/${id}`)
+//         .then(response => {
+//            dispatch(deleteDiarySuccess(response))
+//         })
+//         .catch(error => {
+//             console.log(error)
+//         })
+//     }
+  
+//         }
+
 export const deleteDiary = id => dispatch => {
     api.delete(`/api/diary/${id}`)
-         .then(res => {
-            dispatch(deleteDiarySuccess(res))
-         })
-         .catch(error => {
-             console.log(error)
-         })
-        }
-
+         .then(res => 
+            dispatch({
+                type: DELETE_DIARY,
+                payload: id
+            }))
+  
+}
 
 export const addDiary = diary => dispatch => {
     api

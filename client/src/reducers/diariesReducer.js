@@ -63,20 +63,33 @@ const executeFetchDiarySuccess = (state, action) => {
   }
 }
 
-const executeDeleteDiarySuccess = (state, action) => {
-  return {
-    ...state,
-    diaries: state.diaries.filter(diary => diary._id !== action.payload),
-    loading: false
-  }
-}
+// const executeDeleteDiarySuccess = (state, action) => {
+//   return {
+//     ...state,
+//     diaries: state.diaries.filter(diary => diary._id !== action.payload),
+//     loading: false
+//   }
+// }
+
+// const executeDeleteDiarySuccess = (state, action) => {
+
+//   return {
+//     ...state,
+//     diaries: state.diaries.filter(diary => diary._id !== action.payload) 
+//   }
+// }
 
 const diariesReducer = (state = initialState, action) => {
   switch(action.type) {
     case FETCH_DIARY_SUCCESS:
+      console.log(action)
       return executeFetchDiarySuccess(state, action)
     case DELETE_DIARY:
-      return executeDeleteDiarySuccess(state, action)
+      console.log(action)
+      return {
+        ...state,
+        diaries: state.diaries.filter(diary => diary._id !== action.payload)
+    }
     case ADD_DIARY:
         return {
             ...state, 
