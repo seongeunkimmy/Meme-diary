@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 // import { getDiaries, deleteDiary } from '../actions/diaryAction';
 import { PropTypes } from 'prop-types';
 
-import {getDiary} from '../actions/fetchDiary'
+import {getDiary, deleteDiary} from '../actions/fetchDiary'
 
 // import React, { useEffect, useState }from 'react'
 // import { useSelector, useDispatch } from 'react-redux'
@@ -148,7 +148,7 @@ componentDidMount() {
     
        return(
         <div>
-        
+        <Navbar />
         <div className="diary-container">
       <h1 className="diary-title">forMe.</h1>
       <div>
@@ -185,9 +185,12 @@ componentDidMount() {
          <p>{content}</p>
          </div>
          <div className="diary-item">
-         {/* <button onClick={} className="sm-btn" >
+         {/* <button onClick={this.onDeleteClick.bind(this, _id)} className="sm-btn" >
          Delete
         </button> */}
+        <button onClick={(_id) => this.props.dispatch(deleteDiary(_id))} className="sm-btn" >
+         Delete
+        </button>
          </div>
        
         </div>
@@ -210,7 +213,7 @@ componentDidMount() {
 
  
 //    Diaries.propTypes = {
-//     getDiary: PropTypes.func.isRequired, 
+//     deleteDiary: PropTypes.func.isRequired, 
    
 // }
    const mapStateToProps = state => ({

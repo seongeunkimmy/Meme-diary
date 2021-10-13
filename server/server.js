@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
 
 
 
-const PORT = 5000; 
-app.listen(PORT, () => {
-    console.log(`Server is runnng on port ${PORT}`)
+const port = process.env.PORT || 5000; 
+app.listen( port, () => {
+    console.log(`Server is runnng on port ${port}`)
 })

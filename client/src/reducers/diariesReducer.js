@@ -63,15 +63,20 @@ const executeFetchDiarySuccess = (state, action) => {
   }
 }
 
+const executeDeleteDiarySuccess = (state, action) => {
+  return {
+    ...state,
+    diaries: state.diaries.filter(diary => diary._id !== action.payload),
+    loading: false
+  }
+}
+
 const diariesReducer = (state = initialState, action) => {
   switch(action.type) {
     case FETCH_DIARY_SUCCESS:
       return executeFetchDiarySuccess(state, action)
     case DELETE_DIARY:
-        return {
-            ...state,
-            diaries: state.diaries.filter(diary => diary._id !== action.payload)
-        }
+      return executeDeleteDiarySuccess(state, action)
     case ADD_DIARY:
         return {
             ...state, 

@@ -1,29 +1,33 @@
 import React from 'react'
-// import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './Navbar.css';
 
 
-export default function Navbar({diaries}) {
+export default function Navbar() {
     return (
         <div className="nav-container">
+           
             <section className="main-section">
-                {/* <Link className="nav-main" to="/home">
+            <NavLink className="nav-main" to="/">
                     forMe.
-                </Link>
+                </NavLink>
                 </section>
                 <section className="item-section">
                     <div>
-                        <Link className="nav-item" to="/diaries/new">
+                        <NavLink className="nav-item" to="/diaries/new">
                             NEW
-                        </Link>
+                        </NavLink>
                     </div>
                     <div>
-                        <Link className="nav-item" to="/diaries">
+                        <NavLink className="nav-item" to="/diaries">
                              YOUR STORY
-                        </Link>
-                    </div> */}
-                </section>
+                        </NavLink>
+                    </div>
+                    </section>
+            
+         
+          
                      
                 </div>
             

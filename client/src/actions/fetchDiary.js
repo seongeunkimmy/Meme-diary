@@ -1,40 +1,4 @@
-
-
-// export const FETCH_DIARY_PENDING = 'FETCH_DIARY_PENDING';
-// export const FETCH_DIARY_SUCCESS = 'FETCH_DIARY_SUCCESS';
-// export const FETCH_DIARY_ERROR = 'FETCH_DIARY_ERROR';
-
-// export const fetchDiaryPending = () => {
-//     return {
-//         type: FETCH_DIARY_PENDING
-//     }
-// }
-
-//  export const fetchDiarySuccess = (diaries) => {
-//     return {
-//         type: FETCH_DIARY_SUCCESS,
-//         payload: {diaries}
-//     }
-// }
-
-// export const fetchDiaryError = (error) => {
-//     return {
-//         type: FETCH_DIARY_ERROR,
-//         payload: {error}
-//     }
-// }
- 
-
-
-
-// function handleErrors(response) {
-//     if (!response.ok) {
-//       throw Error(response.statusText);
-//     }
-//     return response;
-//   }
-
-import {FETCH_DIARY_SUCCESS, DELETE_DIARY, ADD_DIARY, DIARY_LOADING } from '../actions/types'
+import {FETCH_DIARY_SUCCESS, DELETE_DIARY, ADD_DIARY, DIARY_LOADING, DELETE_DIARY_SUCCESS } from '../actions/types'
 import api from '../api/api.js'
 
 const getDiarySuccess = (diaries) => {
@@ -42,6 +6,13 @@ const getDiarySuccess = (diaries) => {
     type: FETCH_DIARY_SUCCESS,
     diaries: diaries
   }
+}
+
+const deleteDiarySuccess = (response) => {
+    return {
+        type: DELETE_DIARY_SUCCESS,
+        response: response
+    }
 }
 
 export const getDiary = () => {
@@ -65,13 +36,14 @@ export const diaryLoading = () => {
 
 export const deleteDiary = id => dispatch => {
     api.delete(`/api/diary/${id}`)
-         .then(res => 
-            dispatch({
-                type: DELETE_DIARY,
-                payload: id
-            }))
-  
-}
+         .then(res => {
+            dispatch(deleteDiarySuccess(res))
+         })
+         .catch(error => {
+             console.log(error)
+         })
+        }
+
 
 export const addDiary = diary => dispatch => {
     api
