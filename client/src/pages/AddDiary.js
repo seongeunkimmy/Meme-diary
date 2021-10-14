@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar'
 import DatePicker from "react-datepicker";
 import HeartRating from "./HeartRating.js"
 
-import { addDiary } from "../actions/diaryAction"
+import { addDiary } from "../actions/diariesAction"
 
 import "./AddDiary.css"
 import "react-datepicker/dist/react-datepicker.css";
@@ -133,10 +133,3 @@ export default function AddDiary() {
     )
 }
 
-
-
-// const mapStateToProps = (state) => ({
-//   diary: state.diary
-// });
-
-// export default connect(mapStateToProps, { addDiary })(AddDiary);

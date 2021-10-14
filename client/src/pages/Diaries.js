@@ -1,17 +1,13 @@
-// import React, { Component } from 'react';
-import React, { useEffect, useDispatch } from 'react';
+import React, { useEffect } from 'react';
 import moment from 'moment';
-// import axios from 'axios';
 import HeartRating from "./HeartRating.js"
 import Navbar from "../components/Navbar"
 import './Diaries.css'
 
 import { connect } from 'react-redux';
+// import { PropTypes } from 'prop-types';
 
-// import { getDiaries, deleteDiary } from '../actions/diaryAction';
-import { PropTypes } from 'prop-types';
-
-import {getDiary, deleteDiary} from '../actions/diariesAction'
+import { getDiary, deleteDiary } from '../actions/diariesAction'
 
 // import React, { useEffect, useState }from 'react'
 // import { useSelector, useDispatch } from 'react-redux'
@@ -229,11 +225,11 @@ import {getDiary, deleteDiary} from '../actions/diariesAction'
 
 //------------------------------------------------------------------------------------------------------------
 
-function Diaries({diaries, getDiary, deleteDiary}) {
-
+function Diaries({diaries, deleteDiary, getDiary}) {
+  
     useEffect(() => {
         getDiary();
-    }, []);
+    }, [getDiary]);
 
     const handleDelete = (id) => {
         deleteDiary(id);
@@ -257,7 +253,6 @@ function Diaries({diaries, getDiary, deleteDiary}) {
         <HeartRating 
          totalHearts={5} 
          selectedHeart={selectedHeart}
-        //  setSelectedHeart={this.props.selectedHeart}
          />
       
          </div>
@@ -287,14 +282,8 @@ function Diaries({diaries, getDiary, deleteDiary}) {
         </div>
        
           )) : null } 
-          
-        
-    
-       
-          
-          
-</div>
-          
+                 
+</div>        
 </div>  
        </div>
   
@@ -302,18 +291,15 @@ function Diaries({diaries, getDiary, deleteDiary}) {
    };
 
  
-//    Diaries.propTypes = {
-//     deleteDiary: PropTypes.func.isRequired, 
-   
-// }
+
    const mapStateToProps = state => ({
     //    diary: state.diary,
        diaries: state.diaries.diaries,
-      
+     
    })
 
 
 
-export default connect(mapStateToProps, {getDiary, deleteDiary})(Diaries);
+export default connect(mapStateToProps, { getDiary, deleteDiary })(Diaries);
 
 
