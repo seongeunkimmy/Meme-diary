@@ -9,9 +9,11 @@ import {
     LOGIN_FAIL, 
     LOGOUT_SUCCESS, 
     REGISTER_SUCCESS, 
-    REGISTER_FAIL 
+    REGISTER_FAIL, 
+    CLEAR_ERRORS
 } from './types';
 
+//load user
 export const loadUser = () => (dispatch, getState) => {
     dispatch({type: USER_LOADING});
 
@@ -30,9 +32,40 @@ export const loadUser = () => (dispatch, getState) => {
       });
     };
 
+//register user 
+export const register = ({firstName, lastName, email, password}) => dispatch => {
+  
+ const config = {
+     headers: {
+         'Content-Type': 'application/json'
+     }
+ }
 
-const tokenConfig = getState => {
+ const body = JSON.stringify({firstName, lastName, email, password});
+ 
+ api.post('/api/user', body, config)
+    .then(res => dispatch({
+        type: REGISTER_SUCCESS,
+        payload: res.data
+    }))
+    .then(res => dispatch({
+        type: CLEAR_ERRORS
+    }))
+    .catch(err => {
+        dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
+        dispatch({
+            type: REGISTER_FAIL
+        })
+    }
+    )
+}
+  
+
+
+
 //Get token and add to headers
+const tokenConfig = getState => {
+
 const token = getState().auth.token;
 const config = {
     headers: {

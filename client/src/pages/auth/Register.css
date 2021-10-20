@@ -16,9 +16,19 @@
     justify-content: center;
 }
 
+.alert {
+    padding: 10px;
+    font-size: 0.8rem;
+    background-color: #FFBABA; /* Red */
+    color: #D8000C;
+    border: 1px solid darken(#FFBABA, 15%);
+    margin-bottom: 15px;
+    margin: 0 10px;
+  }
+
 .register-form {
     width: 400px;
-    height: 500px;
+    height: 550px;
     border: 2px solid #fffeee;
 }
 

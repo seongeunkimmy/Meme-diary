@@ -33,7 +33,6 @@ export default function AddDiary() {
     e.preventDefault(); 
    
     const newDiary = {
-      
       title, 
       content, 
       date, 

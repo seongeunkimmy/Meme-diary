@@ -14,6 +14,11 @@ export default function Navbar() {
                 </NavLink>
                 </section>
                 <section className="item-section">
+                <div>
+                        <NavLink className="nav-item" to="/register">
+                            SIGN-UP
+                        </NavLink>
+                    </div>
                     <div>
                         <NavLink className="nav-item" to="/diaries/new">
                             NEW

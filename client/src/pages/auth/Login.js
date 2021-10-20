@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
+
 import './Login.css';
 
 export default function Login() {
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+   
+    
+
     return (
         
             <div className="login-container">
@@ -36,7 +41,7 @@ export default function Login() {
                  <Link to="/register">
                  <button>Sign Up!</button>
                  </Link>
-                 
+              
                 </div>
                  
                  </div>
