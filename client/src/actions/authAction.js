@@ -60,7 +60,12 @@ export const register = ({firstName, lastName, email, password}) => dispatch => 
     )
 }
   
-
+//log-out
+export const logout = () => {
+    return {
+        type: LOGOUT_SUCCESS
+    }
+}
 
 
 //Get token and add to headers
