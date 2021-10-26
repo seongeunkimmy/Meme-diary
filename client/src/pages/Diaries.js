@@ -225,11 +225,16 @@ import { getDiary, deleteDiary } from '../actions/diariesAction'
 
 //------------------------------------------------------------------------------------------------------------
 
-function Diaries({diaries, deleteDiary, getDiary}) {
+function Diaries({diaries, deleteDiary, getDiary, auth}) {
   
+
     useEffect(() => {
-        getDiary();
-    }, [getDiary]);
+        const user = auth.user;
+        if(user) {
+            getDiary(user._id);
+        }
+        
+    }, [getDiary, auth.user]);
 
     const handleDelete = (id) => {
         deleteDiary(id);
@@ -242,7 +247,7 @@ function Diaries({diaries, deleteDiary, getDiary}) {
       <h1 className="diary-title">forMe.</h1>
       <div>
           { diaries && diaries.length ? diaries.map(({_id, title, content, date, selectedHeart, bodyChecked}) => (
-            <div key={_id} className="diary">
+            <div className="diary">
         <div className="diary-item">
         <div className="diary-grid">
         <div>
@@ -295,6 +300,7 @@ function Diaries({diaries, deleteDiary, getDiary}) {
    const mapStateToProps = state => ({
     //    diary: state.diary,
        diaries: state.diaries.diaries,
+       auth: state.auth
      
    })
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import Navbar from '../components/Navbar'
@@ -13,7 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 
-export default function AddDiary() {
+function AddDiary({diaries, auth}) {
 
   const [selectedHeart, setSelectedHeart] = useState(0);
   const [date, setDate] = useState(null);
@@ -33,6 +33,7 @@ export default function AddDiary() {
     e.preventDefault(); 
    
     const newDiary = {
+      user_id: auth.user._id,
       title, 
       content, 
       date, 
@@ -42,7 +43,7 @@ export default function AddDiary() {
       console.log(newDiary);
       dispatch(addDiary(newDiary));
     
-      history.push('/diaries');
+      // history.push('/diaries');
       
     setDate(null)
     setTitle('')
@@ -132,3 +133,8 @@ export default function AddDiary() {
     )
 }
 
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { addDiary })(AddDiary);

@@ -1,5 +1,4 @@
 import { returnErrors } from './errorAction';
-import { push } from 'react-router-redux';
 import { history } from '../routes.js'
 // import  axios  from 'axios';
 import api from '../api/api';
@@ -50,9 +49,9 @@ export const register = ({firstName, lastName, email, password}) => dispatch => 
         type: REGISTER_SUCCESS,
         payload: res.data
     }))
-    .then(res => {
-        history.push('/');
-    })
+    // .then(res => {
+    //     history.push('/');
+    // })
     .catch(err => {
         dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
         dispatch({
@@ -82,11 +81,11 @@ export const login = ({ email, password }) => dispatch => {
 
     api.post('/api/auth', body, config)
        .then(res => 
-           dispatch({
-               type: LOGIN_SUCCESS,
-               payload: res.data
-           })
-       )
+        dispatch({
+            type: LOGIN_SUCCESS,
+            payload: res.data
+        })
+        )
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL'));
             dispatch({
@@ -98,7 +97,7 @@ export const login = ({ email, password }) => dispatch => {
 };
 
 //Get token and add to headers
-const tokenConfig = getState => {
+export const tokenConfig = getState => {
 
 const token = getState().auth.token;
 const config = {

@@ -11,17 +11,17 @@ import Home from './pages/Home';
 import AddDiary from './pages/AddDiary';
 import Diaries from './pages/Diaries';
 
-export const history = createBrowserHistory({forceRefresh: true})
+// export const history = createBrowserHistory({forceRefresh: true})
 
 export default function Routes() {
     return (
-       <BrowserRouter history={history} >
+       <BrowserRouter>
            <Switch>
                <Route path="/" exact component={Login} />
-               <Route path="/register" component={Register} />
+               <Route  path="/register" component={Register} />
                <PrivateRoute path="/home" exact component={Home} />
                <PrivateRoute path="/diaries/new" component={AddDiary} />
-               <PrivateRoute path="/diaries" exact component={Diaries} />
+               <PrivateRoute path="/diaries" component={Diaries} />
            </Switch>
        </BrowserRouter>
     )

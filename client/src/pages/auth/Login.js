@@ -7,7 +7,7 @@ import { login } from '../../actions/authAction';
 
 import './Login.css';
 
-function Login({ error, isAuthenticated }) {
+function Login({ error, isAuthenticated}) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -23,14 +23,15 @@ function Login({ error, isAuthenticated }) {
     const user = {email, password};
 
     dispatch(login(user));
-    history.push('/home')
+    
+    if(isAuthenticated) {
+        history.push('/home')
+    }
+   
                   
         setEmail('')
         setPassword('')
         setMsg(null)
-    
-       
-
 
     }
 
