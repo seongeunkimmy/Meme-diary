@@ -1,9 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import store from '../store.js'
+import { loadUser } from '../actions/authAction';
+import { Link, Redirect } from 'react-router-dom';
 import Navbar from '../components/Navbar'
 import './Home.css'
 
-export default function Home() {
+class Home extends Component {
+
+ render() {
+     if (!this.props.isAuthenticated) {
+         return <Redirect to="/" />
+     }
+ 
     return (
         <div>
        <Navbar />
@@ -17,3 +27,10 @@ export default function Home() {
         </div>
     )
 }
+}
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps)(Home);

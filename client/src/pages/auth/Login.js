@@ -1,14 +1,48 @@
-import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useHistory, Redirect } from 'react-router-dom';
+import { login } from '../../actions/authAction';
 
 import './Login.css';
 
-export default function Login() {
+function Login({ error, isAuthenticated }) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-   
+    const [msg, setMsg] = useState(null);
+
+
+  const dispatch = useDispatch();
+  const history = useHistory();
     
+   const handleSubmit = e => {
+    e.preventDefault();
+       
+    const user = {email, password};
+
+    dispatch(login(user));
+    history.push('/home')
+                  
+        setEmail('')
+        setPassword('')
+        setMsg(null)
+    
+       
+
+
+    }
+
+    useEffect(() => {
+        if(error.id === 'LOGIN-FAIL') {
+            setMsg(error.msg.msg)
+        } else {
+            setMsg(null)
+        }
+    }, [error])
+
+
 
     return (
         
@@ -18,8 +52,10 @@ export default function Login() {
             </div>
             
            <div className="part login">
-             <form className="sign-in-form">
+         
+             <form onSubmit={handleSubmit} className="sign-in-form">
                  <h1>Log-in</h1>
+                 {msg ? <div className="alert-login">{msg}</div> : null}
                  <div className="login-form"> 
                  <input
                  className="login-item"
@@ -35,7 +71,7 @@ export default function Login() {
                  value={password}
                  onChange={event => setPassword(event.target.value)}
                 />
-                 <button className="login-item" type="submit">Log In</button>
+                 <button  className="login-item" type="submit">Log In</button>
                  <div className="sign-up">
                  <span>Don't have an account?</span>
                  <Link to="/register">
@@ -55,3 +91,11 @@ export default function Login() {
       
     )
 }
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    error: state.error
+  
+  })
+  
+  export default connect(mapStateToProps, { login })(Login);

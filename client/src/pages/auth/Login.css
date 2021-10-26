@@ -13,6 +13,16 @@
     justify-content: center;
 }
 
+.alert-login {
+    padding: 10px;
+    font-size: 0.8rem;
+    background-color: #FFBABA; /* Red */
+    color: #D8000C;
+    border: 1px solid darken(#FFBABA, 15%);
+    margin-bottom: 15px;
+    margin: 0 10px;
+  }
+
 .login {
     background-color: black;
     color: #fffeee;
@@ -41,6 +51,7 @@
     border: 0;
     border-bottom: 1px solid gray;
     padding: 5px;
+    color: white;
     background-color: black;
 }
 .login-form button {

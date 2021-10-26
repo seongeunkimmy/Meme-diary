@@ -1,4 +1,5 @@
 import {FETCH_DIARY_SUCCESS, DELETE_DIARY, ADD_DIARY, DIARY_LOADING } from './types'
+// import  axios  from 'axios';
 import api from '../api/api.js'
 
 const getDiarySuccess = (diaries) => {

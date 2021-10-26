@@ -35,7 +35,7 @@ function Register({error, clearErrors, isAuthenticated}) {
       console.log(newUser);
       dispatch(register(newUser));
    
-      history.push('/')
+      // history.push('/')
     
   
         setFirstName('')
@@ -54,7 +54,6 @@ function Register({error, clearErrors, isAuthenticated}) {
         setMsg(error.msg.msg);
       } else {
         setMsg(null);
-       
       } 
 
 
