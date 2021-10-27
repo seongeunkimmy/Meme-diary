@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import DatePicker from "react-datepicker";
 import HeartRating from "./HeartRating.js"
+import { store } from '../App.js'
+import { loadUser } from '../actions/authAction';
 
 import { addDiary } from "../actions/diariesAction"
 
@@ -15,11 +17,18 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function AddDiary({diaries, auth}) {
 
+  useEffect(() => {
+    store.dispatch(loadUser())
+  },[loadUser])
+
+  const user_id = useSelector(state => state.auth.user._id);
+  console.log(user_id);
   const [selectedHeart, setSelectedHeart] = useState(0);
   const [date, setDate] = useState(null);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [bodyChecked, setBodyChecked] = useState('')
+
   
 
   const handleChange = (e) => {
@@ -33,7 +42,7 @@ function AddDiary({diaries, auth}) {
     e.preventDefault(); 
    
     const newDiary = {
-      user_id: auth.user._id,
+      user_id,
       title, 
       content, 
       date, 

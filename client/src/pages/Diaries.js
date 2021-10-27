@@ -1,8 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import moment from 'moment';
 import HeartRating from "./HeartRating.js"
 import Navbar from "../components/Navbar"
 import './Diaries.css'
+
+import { store } from '../App.js'
+import { loadUser } from '../actions/authAction';
 
 import { connect } from 'react-redux';
 // import { PropTypes } from 'prop-types';
@@ -227,14 +231,16 @@ import { getDiary, deleteDiary } from '../actions/diariesAction'
 
 function Diaries({diaries, deleteDiary, getDiary, auth}) {
   
+    useEffect(() => {
+        store.dispatch(loadUser())
+      },[loadUser])
 
     useEffect(() => {
-        const user = auth.user;
-        if(user) {
-            getDiary(user._id);
-        }
-        
-    }, [getDiary, auth.user]);
+        const user = auth.user._id
+        if(user){
+            getDiary(user);
+        } 
+    }, [getDiary]);
 
     const handleDelete = (id) => {
         deleteDiary(id);

@@ -47,6 +47,7 @@ export const deleteDiary = id => (dispatch, getState) => {
 export const addDiary = diary => (dispatch, getState) => {
 
     const body = JSON.stringify(diary);
+    console.log(body);
 
     api
        .post('/api/diary', body, tokenConfig(getState))

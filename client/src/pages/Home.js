@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import store from '../store.js'
+import { store } from '../App.js'
 import { loadUser } from '../actions/authAction';
 import { Link, Redirect } from 'react-router-dom';
 import Navbar from '../components/Navbar'
 import './Home.css'
 
 class Home extends Component {
+
+ componentDidMount() {
+  store.dispatch(loadUser());
+     }
 
  render() {
      if (!this.props.isAuthenticated) {
