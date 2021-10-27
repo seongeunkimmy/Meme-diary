@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
             }
         });
     } catch (err) {
-        res.status(400).json({ msg: err.message })
+        res.status(400).json({ error: err.message })
     }
        // //check for existing user
     // User.findOne({email})
@@ -82,7 +82,7 @@ router.get('/user', auth, async (req, res) => {
         if (!user) throw Error('This user is not existed');
         res.json(user);
     } catch(err) {
-        res.status(400).json({ msg: err.message });
+        res.status(400).json({ error: err.message });
     }
     // User.findById(req.user.id)
     // .select('-password')

@@ -10,8 +10,7 @@ import {
     LOGIN_FAIL, 
     LOGOUT_SUCCESS, 
     REGISTER_SUCCESS, 
-    REGISTER_FAIL, 
-    CLEAR_ERRORS
+    REGISTER_FAIL
 } from './types';
 
 //load user
@@ -49,9 +48,9 @@ export const register = ({firstName, lastName, email, password}) => dispatch => 
         type: REGISTER_SUCCESS,
         payload: res.data
     }))
-    // .then(res => {
-    //     history.push('/');
-    // })
+    .then(res => {
+        history.push('/');
+    })
     .catch(err => {
         dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
         dispatch({

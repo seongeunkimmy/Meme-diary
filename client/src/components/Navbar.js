@@ -1,5 +1,7 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import {withRouter} from 'react-router';
+import {compose} from 'redux';
+import { Link } from 'react-router-dom';
 import { logout } from '../actions/authAction';
 import { connect } from 'react-redux';
 
@@ -11,26 +13,26 @@ function Navbar({logout}) {
         <div className="nav-container">
            
             <section className="main-section">
-            <NavLink className="nav-main" to="/home">
+            <Link className="nav-main" to="/home">
                     forMe.
-                </NavLink>
+                </Link>
                 </section>
                 <section className="item-section">
                
                     <div>
-                        <NavLink className="nav-item" to="/diaries/new">
+                        <Link className="nav-item" to="/diaries/new">
                             NEW
-                        </NavLink>
+                        </Link>
                     </div>
                     <div>
-                        <NavLink className="nav-item" to="/diaries">
+                        <Link className="nav-item" to="/diaries">
                              YOUR STORY
-                        </NavLink>
+                        </Link>
                     </div>
                     <div>
-                        <NavLink onClick={logout} className="nav-item" to="/">
+                        <Link onClick={logout} className="nav-item" to="/">
                             LOG OUT
-                        </NavLink>
+                        </Link>
                     </div>
                     </section>
             
@@ -43,4 +45,4 @@ function Navbar({logout}) {
     )
 }
 
-export default connect(null, { logout })(Navbar);
+export default compose(withRouter, connect(null, { logout }))(Navbar);

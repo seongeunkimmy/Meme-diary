@@ -5,20 +5,25 @@ const initialState = {
   loading: false
 }
 
-const executeFetchDiarySuccess = (state, action) => {
-  return {
-    ...state,
-    diaries: action.diaries,
-    loading: false
-  }
-}
+// const executeFetchDiarySuccess = (state, action) => {
+//   return {
+//     ...state,
+//     diaries: action.diaries,
+//     loading: false
+//   }
+// }
 
 
 const diariesReducer = (state = initialState, action) => {
   switch(action.type) {
     case FETCH_DIARY_SUCCESS:
       console.log(action)
-      return executeFetchDiarySuccess(state, action)
+      return {
+          ...state,
+          diaries: action.diaries,
+          loading: false
+        
+      }
     case DELETE_DIARY:
       console.log(action)
       return {

@@ -5,15 +5,11 @@ import './App.css';
 
 import { Provider } from 'react-redux';
 import configureStore  from './store.js'
-// import { loadUser } from './actions/authAction';
+
 
 export const store = configureStore();
 
 class App extends Component {
-
-  // componentDidMount() {
-  //   store.dispatch(loadUser());
-  // }
 
   render() {
     return (

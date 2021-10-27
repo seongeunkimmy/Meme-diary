@@ -35,7 +35,6 @@ router.post('/', auth, async (req, res) => {
 
 //GET diaries
 router.get('/:id', auth, async (req, res) => {
-    console.log(req.params.id);
     try {
         const diaries = await Diary.find({user_id: req.params.id}).sort({ date: -1 });
         if(!diaries) throw Error ('No diaries');
@@ -48,7 +47,6 @@ router.get('/:id', auth, async (req, res) => {
 //DELETE diary
 
 router.delete('/delete/:id', auth, async (req, res) => {
-    console.log(req.params.id);
      try {
          const diary = await Diary.findById(req.params.id);
          if(!diary) throw Error('No diary found')

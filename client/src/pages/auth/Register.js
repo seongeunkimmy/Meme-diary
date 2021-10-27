@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { useHistory, Redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import { register } from '../../actions/authAction'
 import { clearErrors } from '../../actions/errorAction';
-import { Modal, NavLink, ModalHeader, ModalBody } from 'reactstrap'
 import './Register.css';
 
 function Register({error, clearErrors, isAuthenticated}) {
@@ -18,7 +16,6 @@ function Register({error, clearErrors, isAuthenticated}) {
 
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
 
 
@@ -55,9 +52,14 @@ function Register({error, clearErrors, isAuthenticated}) {
       } else {
         setMsg(null);
       } 
+    
+      if(isAuthenticated) {
+        clearErrors();
+      }
 
+    }, [error, clearErrors, isAuthenticated])
 
-    }, [error])
+  
   
     return (
         <div>

@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { login } from '../../actions/authAction';
+import { clearErrors } from '../../actions/errorAction';
 
 import './Login.css';
 
-function Login({ error, isAuthenticated}) {
+function Login({ error, isAuthenticated, clearErrors}) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -23,27 +24,27 @@ function Login({ error, isAuthenticated}) {
     const user = {email, password};
 
     dispatch(login(user));
-    
-    if(isAuthenticated) {
-        history.push('/home')
-    }
-   
-                  
+     
         setEmail('')
         setPassword('')
-        setMsg(null)
+        
 
     }
 
     useEffect(() => {
-        if(error.id === 'LOGIN-FAIL') {
+        if(error.id === 'LOGIN_FAIL') {
             setMsg(error.msg.msg)
         } else {
             setMsg(null)
         }
-    }, [error])
 
+        if(isAuthenticated) {
+            history.push('/home')
+            clearErrors();
+        }
+    }, [error, isAuthenticated, clearErrors, history])
 
+  
 
     return (
         
@@ -55,7 +56,9 @@ function Login({ error, isAuthenticated}) {
            <div className="part login">
          
              <form onSubmit={handleSubmit} className="sign-in-form">
+                 <div>
                  <h1>Log-in</h1>
+                 </div>
                  {msg ? <div className="alert-login">{msg}</div> : null}
                  <div className="login-form"> 
                  <input
@@ -99,4 +102,4 @@ const mapStateToProps = state => ({
   
   })
   
-  export default connect(mapStateToProps, { login })(Login);
+  export default connect(mapStateToProps, { login, clearErrors })(Login);

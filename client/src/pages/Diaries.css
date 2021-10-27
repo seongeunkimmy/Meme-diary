@@ -56,6 +56,10 @@ p {
     padding-left: 8px;
 }
 
+li {
+    list-style: none;
+}
+
 .sm-btn:hover{ 
     transform : scaleX(1.2);
     letter-spacing: 0.5px;

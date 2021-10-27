@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { store } from '../App.js'
 import { loadUser } from '../actions/authAction';
 import { Link, Redirect } from 'react-router-dom';
@@ -17,7 +16,8 @@ class Home extends Component {
      if (!this.props.isAuthenticated) {
          return <Redirect to="/" />
      }
- 
+
+
     return (
         <div>
        <Navbar />
@@ -34,7 +34,8 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    diaries: state.diaries.diaries
 })
 
 export default connect(mapStateToProps)(Home);

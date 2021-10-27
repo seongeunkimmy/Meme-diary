@@ -14,13 +14,12 @@
 }
 
 .alert-login {
-    padding: 10px;
-    font-size: 0.8rem;
+    padding: 7px;
+    font-size: 0.7rem;
     background-color: #FFBABA; /* Red */
     color: #D8000C;
     border: 1px solid darken(#FFBABA, 15%);
-    margin-bottom: 15px;
-    margin: 0 10px;
+    margin-bottom: 10px;
   }
 
 .login {
