@@ -31,8 +31,8 @@
     border: none;
     padding: 8px;
     border-top: 3px solid black;
-    border-left: 3px solid transparent;
-    border-right: 3px solid transparent;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
     border-bottom: 3px solid black;
     margin: 20px;
     letter-spacing: 2px;
@@ -42,5 +42,5 @@
 }
 
 .btn:hover{
-    letter-spacing: 8px;
+    letter-spacing: 5px;
   }

@@ -17,6 +17,7 @@ import "react-datepicker/dist/react-datepicker.css";
 function AddDiary() {
 
   const user_id = useSelector(state => state.auth.user._id);
+  const user = useSelector(state => state.auth.user.firstName);
   const [selectedHeart, setSelectedHeart] = useState(0);
   const [date, setDate] = useState(null);
   const [title, setTitle] = useState('');
@@ -61,16 +62,17 @@ function AddDiary() {
         <div>
         <Navbar />
            <form className="form" onSubmit={onSubmit}>
-           <h1 className="form-title">How are you today? </h1>
+           <span className="form-user">For {user}.</span>
+           <h1 className="form-title">How Are You Today? </h1>
             <div className="form-control">
             <div className="form-item">
-              <label>SELECT DATE</label>
+              <label>Select Date</label>
               <DatePicker selected={date} 
                           onChange={(date) => setDate(date)}
                           placeholderText="Choose a date" />
             </div>
             <div className="form-item">
-              <label>ONE THING I AM GRATEFUL FOR</label>
+              <label>One Thing I Am Grateful For</label>
               <input 
               title={title} 
               onChange={(e) => setTitle(e.target.value)} 
@@ -78,7 +80,7 @@ function AddDiary() {
               placeholder="Today.."/>
             </div>
             <div className="form-item">
-              <label>GIVE YOURSELF HEARTS</label>
+              <label>Give Yourself Hearts</label>
               <span>How many hearts would you give to yourself?</span>
             
             <div className="hearts">
@@ -92,7 +94,7 @@ function AddDiary() {
             </div>
 
             <div className="form-item">
-              <label>TREAT YOUR BODY WELL?</label>
+              <label>Treat Your Body Well?</label>
               <span>Eat Healthy/ Meditation / Exercise </span>
               <div className="checkbox">
               <div className="check-opt">
@@ -114,7 +116,7 @@ function AddDiary() {
               </div>
             </div>
              <div className="form-item">
-              <label>TODAY I FEEL</label>
+              <label>Today I Feel </label>
               <textarea 
               content={content} 
               onChange={(e) => setContent(e.target.value)} 
@@ -123,7 +125,7 @@ function AddDiary() {
               cols="15" 
               rows="5" />
              </div>
-           
+          
             </div>
             
             <div className="form-upload">
