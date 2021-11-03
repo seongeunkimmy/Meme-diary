@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
-
+// const dotenv = require('dotenv');
 const config = require('config');
 
 //middleware
@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 //db config
-
+// dotenv.config()
 const db = config.get('mongoURI');
 
 
