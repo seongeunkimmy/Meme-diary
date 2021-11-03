@@ -65,3 +65,37 @@ li {
     letter-spacing: 0.5px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+ .diary-title {
+     margin-left: 50px;
+     font-size: 4rem;
+ }
+ 
+}
+
+@media screen and (min-width: 375px) and (max-width: 667px) {
+ .diary-title {
+     margin: 15px 15px 40px 15px;
+     font-size: 3.8rem;
+     
+ }
+ .diary-container {
+     display: flex;
+     flex-direction: column;
+     padding-top: 100px;
+ }
+ .diary {
+     width: 92%;
+     margin: 20px 10px;
+     padding: 10px;
+     border-bottom: 3px solid black;
+     border-right: 3px solid transparent;
+ }
+ .grid-flex {
+    font-size: 10px;
+    width: 120px;
+ }
+ .diary-grid {
+     font-size: 15px;
+ }
+}

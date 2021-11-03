@@ -88,3 +88,21 @@
     transform : scaleX(1.1);
     letter-spacing: 0.1px;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .register-form {
+        width: 500px;
+        height: 600px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 667px) {
+
+.register-form {
+    width: 300px;
+    height: 500px;
+}
+.regi-form input {
+    width: 250px;
+}
+}

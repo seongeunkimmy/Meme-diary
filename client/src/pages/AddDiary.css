@@ -117,3 +117,31 @@
     letter-spacing: 2px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+.form-control {
+    left: 120px;
+}
+.form {
+    padding-top: 200px;
+}
+}
+
+@media screen and (min-width: 375px) and (max-width: 667px) {
+    .form-control {
+      left: 50px;
+    }
+    .form-title {
+        font-size: 2rem;
+        margin: 10px 20px 30px 50px;
+    }
+    .form {
+        padding-top: 100px;
+    }
+    .form-upload {
+        margin-right: 60px;
+    }
+    .form-user {
+        margin: 30px;
+        font-size: 0.8rem;
+    }
+}

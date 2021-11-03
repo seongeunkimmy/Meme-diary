@@ -92,3 +92,20 @@
     transform : scaleX(1.1);
     letter-spacing: 0.1px;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .sign-in-form h1 {
+        font-size: 2.0rem;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 736px) {
+  .login-container {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: auto;
+  }
+  .part {
+      height: 50vh;
+      align-items: center;
+  }
+}
