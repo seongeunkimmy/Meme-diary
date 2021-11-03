@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
 
     try {
         const user = await User.findOne({ email });
-        if(user) throw Error('This user is already existed');
+        if(user) return res.status(400).json({msg: 'This user is already existed'});
 
         const salt = await bcrypt.genSalt(10);
         if (!salt) throw Error('Something went wrong with bcrypt');
@@ -51,52 +51,6 @@ router.post('/', async (req, res) => {
         res.status(400).json({ error: err.message });
     }
 
-    
-    
-    // //check if the user exists
-    // User.findOne({email})
-    // .then(user => {
-    //     if(user) return res.status(400).json({msg: 'This user is alreay existed'});
-
-    //     const newUser = new User({
-    //         firstName,
-    //         lastName,
-    //         email,
-    //         password
-    //     })
-
-    //     //salt & hash 
-    //     bcrypt.genSalt(10, (err, salt) => {
-    //         bcrypt.hash(newUser.password, salt, (err, hash) => {
-    //             if(err) throw err;
-    //             newUser.password = hash; 
-    //             newUser.save()
-    //             .then(user => {
-                 
-    //                 //verify the user with id
-    //                 jwt.sign(
-    //                     { id: user.id },
-    //                     config.get('jwtSecret'),
-    //                     { expiresIn : 1800 },
-    //                     (err, token) => {
-    //                         if(err) throw err; 
-    //                         res.json({
-    //                             token,
-    //                             user: {
-    //                                 _id: user.id, 
-    //                                 firstName: user.firstName,
-    //                                 lastName: user.lastName, 
-    //                                 email: user.email
-    //                             }
-    //                         })
-    //                     }
-    //                 )
-
-                  
-    //             })
-    //         })
-    //     })
-    // })
     
 });
 
