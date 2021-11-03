@@ -3,6 +3,10 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+
+dotenv.config()
+
 
 const User = require("../../models/User");
 
@@ -36,7 +40,7 @@ router.post('/', async (req, res) => {
         const savedUser = await newUser.save();
         if (!savedUser) throw Error('This user is saved wrongly');
 
-        const token = jwt.sign({ id: savedUser._id }, config.get('jwtSecret'), { expiresIn: 1800 });
+        const token = jwt.sign({ id: savedUser._id }, `${process.env.JWT_SECRET}`, { expiresIn: 1800 });
         
         res.status(200).json({
             token, 

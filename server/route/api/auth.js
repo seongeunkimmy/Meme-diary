@@ -4,6 +4,9 @@ const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
+const dotenv = require('dotenv');
+
+dotenv.config()
 
 const User = require("../../models/User");
 
@@ -24,7 +27,7 @@ router.post('/', async (req, res) => {
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(400).json({msg:'Invalid Password'})
 
-        const token = jwt.sign({ id: user._id }, config.get('jwtSecret'), { expiresIn : 1800 },);
+        const token = jwt.sign({ id: user._id }, `${process.env.JWT_SECRET}`, { expiresIn : 1800 },);
         if (!token) throw Error('This token is not working');
 
         res.status(200).json({
