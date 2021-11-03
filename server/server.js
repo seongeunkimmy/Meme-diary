@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
+
 const config = require('config');
 
 //middleware
@@ -10,6 +11,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 //db config
+
 const db = config.get('mongoURI');
 
 
