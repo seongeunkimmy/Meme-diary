@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const app = express();
 require('dotenv').config()
 
-// const config = require('config/config.json');
 
 //middleware
 app.use(cors());
@@ -13,7 +12,7 @@ app.use(express.json());
 
 //db config
 
-const db = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.w4brg.mongodb.net/diaryDB`;
+const db = process.env.MONGO_URI;
 
 
 //connect to mongoDB

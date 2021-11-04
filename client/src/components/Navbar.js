@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 import { logout } from '../actions/authAction';
 import { connect } from 'react-redux';
 
+
 import './Navbar.css';
 
 
 function Navbar({logout}) {
+  
     return (
         <div className="nav-container">
            
@@ -17,8 +19,8 @@ function Navbar({logout}) {
                     forMe.
                 </Link>
                 </section>
+             
                 <section className="item-section">
-               
                     <div>
                         <Link className="nav-item" to="/diaries/new">
                             NEW
@@ -30,12 +32,13 @@ function Navbar({logout}) {
                         </Link>
                     </div>
                     <div>
-                        <Link onClick={logout} className="nav-item" to="/">
+                    
+                        <Link onClick={logout} className="log-out" to="/">
                             LOG OUT
                         </Link>
                     </div>
                     </section>
-            
+                 
          
           
                      
