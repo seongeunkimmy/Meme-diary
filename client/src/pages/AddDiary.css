@@ -128,8 +128,8 @@
 
 @media screen and (min-width: 375px) and (max-width: 667px) {
     .form-control {
-      left: 60px;
-      width: 70%;
+      left: 50px;
+      width: 75%;
     }
     .form-title {
         font-size: 2rem;
