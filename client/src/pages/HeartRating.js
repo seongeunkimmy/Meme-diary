@@ -18,8 +18,6 @@ export default function HeartRating({
                   size={18}
                   key={i}
                   className={i <= selectedHeart ? "selectedHeart" : "heart"}
-                //   onMouseEnter={() => setHoverHeart(i)}
-                //   onMouseLeave={() => setHoverHeart(selectedHeart)}
                   onClick={() => setSelectedHeart(i)}
                 
                   />
