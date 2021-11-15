@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://frozen-headland-36000.herokuapp.com/",
+  "proxy": "https://afternoon-plateau-86443.herokuapp.com",
   "eslintConfig": {
     "extends": [
       "react-app",
