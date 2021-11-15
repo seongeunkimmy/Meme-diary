@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://afternoon-plateau-86443.herokuapp.com",
+  "proxy": "https://localhost:5000",
   "eslintConfig": {
     "extends": [
       "react-app",
