@@ -7,7 +7,7 @@
 
 ## Links
 
-<p>The app is currently hosted on Heroku, click </p>[here](https://vast-dusk-72231.herokuapp.com/)
+The app is currently hosted on Heroku, click [here](https://vast-dusk-72231.herokuapp.com/) to forMe!
 
 
 ## Built With
