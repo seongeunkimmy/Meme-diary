@@ -7,7 +7,7 @@
 
 ## Links
 
-[Live](https://vast-dusk-72231.herokuapp.com/)
+<p>The app is currently hosted on Heroku, click </p>[here](https://vast-dusk-72231.herokuapp.com/)
 
 
 ## Built With
