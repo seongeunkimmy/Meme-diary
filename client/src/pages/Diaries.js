@@ -37,7 +37,7 @@ function Diaries({diaries, getDiary, deleteDiary, auth}) {
         <div>
         <Navbar />
         <div className="diary-container">
-      <h1 className="diary-title">forMe.</h1>
+      <h1 className="diary-title">forMe</h1>
       <div>
           { diaries && diaries.length ? diaries.map(({_id, title, content, date, selectedHeart, bodyChecked}) => (
             <li key={_id}>

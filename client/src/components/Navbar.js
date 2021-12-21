@@ -13,10 +13,10 @@ function Navbar({logout}) {
   
     return (
         <div className="nav-container">
-           
             <section className="main-section">
             <Link className="nav-main" to="/home">
-                    forMe.
+                   <span>for</span>
+                   <span className="nav-main-me">Me.</span>
                 </Link>
                 </section>
              
@@ -38,9 +38,6 @@ function Navbar({logout}) {
                         </Link>
                     </div>
                     </section>
-                 
-         
-          
                      
                 </div>
             

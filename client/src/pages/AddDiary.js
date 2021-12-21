@@ -60,7 +60,9 @@ function AddDiary() {
 
     return (
         <div>
+    
         <Navbar />
+        
            <form className="form" onSubmit={onSubmit}>
            <span className="form-user">For {user}.</span>
            <h1 className="form-title">How Are You Today? </h1>
@@ -133,7 +135,7 @@ function AddDiary() {
             </div>
 
             </form>
-           
+       
         </div>
     )
 }

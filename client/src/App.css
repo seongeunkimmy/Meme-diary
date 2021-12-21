@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Nanum+Gothic&family=Rubik&display=swap');
 
 * {
     box-sizing: border-box;
@@ -9,5 +10,5 @@
 
 body {
     background-color: #fffbee;
-    font-family: Playfair Display; 
+    font-family: 'Playfair Display', sans-serif;
 }
