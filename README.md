@@ -2,7 +2,7 @@
 
 
 <h1 align="center">forMe Diary</h1>
-![main photo](https://raw.githubusercontent.com/seongeunkimmy/Meme-diary/master/forMe.png) 
+![main photo](https://raw.githubusercontent.com/seongeunkimmy/Meme-diary/master/images/forMe.png) 
 <p align="center">forMe is an app that helps you write self-reflective journal. </p>
 
 ## Links
