@@ -44,6 +44,24 @@ router.get('/:id', auth, async (req, res) => {
     }
 })
 
+//UPDATE diary 
+router.put('/edit/:id', auth, async (req, res) => {
+    try {
+        const diary = await Diary.findById(req.params.id);
+        if(!diary) throw Error ('No diary found')
+
+        diary.title = req.body.title; 
+        diary.content = req.body.content; 
+        diary.date = req.body.date; 
+        diary.selectedHeart = req.body.selectedHeart; 
+        diary.bodyChecked = req.body.bodyChecked; 
+
+        await diary.save();
+        res.status(200).json({success: true})
+    } catch(err) {
+        res.status(400).json({msg: err.message, success: false})
+    }
+})
 //DELETE diary
 
 router.delete('/delete/:id', auth, async (req, res) => {

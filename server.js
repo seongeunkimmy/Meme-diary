@@ -27,9 +27,7 @@ app.use('/api/diary', require('./route/api/diary'))
 app.use('/api/user', require('./route/api/user'))
 app.use('/api/auth', require('./route/api/auth'))
 
-// app.get('/', function (req, res) {
-//     res.send("it's running")
-// })
+
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
@@ -39,7 +37,7 @@ if(process.env.NODE_ENV === 'production') {
     });
 }
 
-
+//port 
 const port = process.env.PORT || 5000; 
 app.listen( port, () => {
     console.log(`Server is runnng on port ${port}`)
