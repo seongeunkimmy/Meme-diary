@@ -1,4 +1,4 @@
-import { FETCH_DIARY_SUCCESS, DELETE_DIARY, ADD_DIARY, DIARY_LOADING, ADD_DIARY_FAIL  } from '../actions/types'
+import { FETCH_DIARY_SUCCESS, DELETE_DIARY, ADD_DIARY, DIARY_LOADING, ADD_DIARY_FAIL, EDIT_DIARY } from '../actions/types'
 
 const initialState = {
   diaries: [],
@@ -23,6 +23,12 @@ const diariesReducer = (state = initialState, action) => {
           diaries: action.diaries,
           loading: false
         
+      }
+    case EDIT_DIARY:
+        console.log(action)
+        return {
+          ...state,
+          diaries: state.diaries.filter(diary => diary._id !== action.payload)
       }
     case DELETE_DIARY:
       console.log(action)

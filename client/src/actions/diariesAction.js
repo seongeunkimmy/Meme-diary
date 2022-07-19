@@ -1,4 +1,4 @@
-import {FETCH_DIARY_SUCCESS, DELETE_DIARY, ADD_DIARY, DIARY_LOADING, ADD_DIARY_FAIL } from './types'
+import {FETCH_DIARY_SUCCESS, DELETE_DIARY, ADD_DIARY, DIARY_LOADING, ADD_DIARY_FAIL, EDIT_DIARY} from './types'
 // import  axios  from 'axios';
 import { tokenConfig } from './authAction';
 import { returnErrors } from './errorAction';
@@ -30,6 +30,19 @@ export const diaryLoading = () => {
     }
 }
 
+export const editDiary = id => (dispatch, getState) => {
+   
+    api.put(`/api/diary/edit/${id}`, tokenConfig(getState))
+         .then(res => 
+            dispatch({
+                type: EDIT_DIARY,
+                payload: id
+            }))
+            .catch (err => 
+                dispatch(returnErrors(err.response.data, err.response.status))
+                )
+  
+}
 
 export const deleteDiary = id => (dispatch, getState) => {
     api.delete(`/api/diary/delete/${id}`, tokenConfig(getState))
