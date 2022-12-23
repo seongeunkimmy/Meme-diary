@@ -38,6 +38,10 @@
     justify-content: flex-end;
 }
 
+.diary-button {
+    display: flex;
+    justify-content: flex-end;
+}
 
 .sm-btn {
     align-self: flex-end;
@@ -51,6 +55,7 @@
     width: 50px;
     transition: all 0.30s; 
     letter-spacing: none;
+    margin: 5px;
 }
 
 p {

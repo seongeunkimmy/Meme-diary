@@ -5,8 +5,6 @@ import Modal from 'react-bootstrap/Modal';
 
 function EditDiary(props) {
 
- 
-
   return (
       <>
     <Modal.Dialog show={props.show} close={props.close} >

@@ -1,8 +1,4 @@
-import React, { useEffect, useState } from 'react';
-
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
+import React, { useEffect } from 'react';
 
 import moment from 'moment';
 import HeartRating from "./HeartRating.js"
@@ -17,11 +13,6 @@ import { getDiary, deleteDiary, editDiary } from '../actions/diariesAction'
 
 function Diaries({diaries, getDiary, deleteDiary, editDiary, auth}) {
 
-  // const [show, setShow] = useState(false);
-  // console.log(show)
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
   
     // useEffect(() => {
     //     store.dispatch(loadUser());
@@ -46,6 +37,7 @@ function Diaries({diaries, getDiary, deleteDiary, editDiary, auth}) {
 
     const handleUpdate = (id) => {
        editDiary(id);
+       console.log(id);
      
     }
 
@@ -91,56 +83,14 @@ function Diaries({diaries, getDiary, deleteDiary, editDiary, auth}) {
          <p>{content}</p>
          </div>
          <div className="diary-item">
-         {/* <button onClick={() => handleUpdate(_id)} className="sm-btn" > */}
-         {/* <button onClick={() => setShow(true)} className="sm-btn">
-         Edit
-         </button>
-         <EditDiary show={show} close={() => setShow(false)}/> */}
-        {/* </button> */}
-
-        {/* <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-          </Button> */}
-       
-         <button onClick={() => handleUpdate(_id)}> 
+       <div className="diary-button">
+         <button onClick={() => handleUpdate(_id)} className="sm-btn"> 
          Edit 
          </button>
-         {/* <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="name@example.com"
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Label>Example textarea</Form.Label>
-              <Form.Control as="textarea" rows={3} />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleUpdate}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
          <button onClick={() => handleDelete(_id)} className="sm-btn" >
          Delete
         </button>
-      
+        </div>
          </div>
         
         </div>
