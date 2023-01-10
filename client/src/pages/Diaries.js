@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect} from 'react';
+
+
 
 import moment from 'moment';
 import HeartRating from "./HeartRating.js"
@@ -7,13 +9,18 @@ import Navbar from "../components/Navbar"
 import './Diaries.css'
 
 import { connect } from 'react-redux';
-import { getDiary, deleteDiary, editDiary } from '../actions/diariesAction'
+import { getDiary, deleteDiary } from '../actions/diariesAction'
+// import EditDiary from '../modal/diaryEdit.js';
 
 
 
-function Diaries({diaries, getDiary, deleteDiary, editDiary, auth}) {
+function Diaries({diaries, getDiary, deleteDiary, auth}) {
 
-  
+  // const [show, setShow] = useState(false);
+
+
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
     // useEffect(() => {
     //     store.dispatch(loadUser());
     //   },[loadUser])
@@ -35,11 +42,11 @@ function Diaries({diaries, getDiary, deleteDiary, editDiary, auth}) {
        console.log(id);
     }
 
-    const handleUpdate = (id) => {
-       editDiary(id);
-       console.log(id);
+    // const handleUpdate = (id) => {
+    //    editDiary(id);
+    //    console.log(id);
      
-    }
+    // }
 
    
 
@@ -84,9 +91,10 @@ function Diaries({diaries, getDiary, deleteDiary, editDiary, auth}) {
          </div>
          <div className="diary-item">
        <div className="diary-button">
-         <button onClick={() => handleUpdate(_id)} className="sm-btn"> 
+         {/* <Button onClick={handleShow} className="sm-btn"> 
          Edit 
-         </button>
+         </Button> */}
+  
          <button onClick={() => handleDelete(_id)} className="sm-btn" >
          Delete
         </button>
@@ -117,6 +125,6 @@ function Diaries({diaries, getDiary, deleteDiary, editDiary, auth}) {
 
 
 
-export default connect(mapStateToProps, { getDiary, deleteDiary, editDiary })(Diaries);
+export default connect(mapStateToProps, { getDiary, deleteDiary })(Diaries);
 
 

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { 
     USER_LOADED, 
     USER_LOADING, 
